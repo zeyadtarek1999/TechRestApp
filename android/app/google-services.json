@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "639267985990",
+    "project_id": "tech-rest",
+    "storage_bucket": "tech-rest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:639267985990:android:2b89190d03301e4fe58847",
+        "android_client_info": {
+          "package_name": "com.example.firstproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "639267985990-8jtavvpc8h3fi45seo9uh3pqv2iqj2m3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firstproject",
+            "certificate_hash": "57274a9fc19dba4e9078e2a4456e042c713343ea"
+          }
+        },
+        {
+          "client_id": "639267985990-en7vg64n59m45drc78ssumi7udi7gri6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmhoYbWKP6V9HsKOIXFgJB-srrvuGAgwI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "639267985990-en7vg64n59m45drc78ssumi7udi7gri6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

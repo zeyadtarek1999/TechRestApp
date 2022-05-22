@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>639267985990-51j26i1r6glhsd5dti2t053rs4u5pbe2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.639267985990-51j26i1r6glhsd5dti2t053rs4u5pbe2</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>639267985990-8jtavvpc8h3fi45seo9uh3pqv2iqj2m3.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBXHmJgMp1uAPnl0OyB5d_hhP51KoIbUcg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>639267985990</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.firstproject</string>
+	<key>PROJECT_ID</key>
+	<string>tech-rest</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tech-rest.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:639267985990:ios:503687649c2cd327e58847</string>
+</dict>
+</plist>
