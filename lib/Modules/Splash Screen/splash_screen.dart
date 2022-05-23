@@ -35,7 +35,7 @@ class splash_screen extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 15,),
-              Text('more independence.....more freedom'.toUpperCase(),style: GoogleFonts.metrophobic (textStyle:Sloganstyle,),)
+              Text('more independence.....more freedom'.toUpperCase(),style: GoogleFonts.kalam (textStyle:Sloganstyle,),)
             ],
           ),
         ),

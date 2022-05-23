@@ -32,7 +32,7 @@ class  QR_instructions extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('1- Click on scan',textAlign: TextAlign.center, style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),),
+                        Text('1- Click on scan',textAlign: TextAlign.center, style: TextStyle(fontSize: 15,color: Colors.black ),),
                         SizedBox(height: 20,),
                         Text('2- Put the camera on the QR code with distance to get all the code scanned', style: TextStyle(color: Colors.black,fontSize: 15),),
                         SizedBox(height: 20,),

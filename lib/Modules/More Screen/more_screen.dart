@@ -4,6 +4,7 @@ import 'package:firstproject/Modules/About%20US/about_us.dart';
 import 'package:firstproject/Modules/Change%20language/change_lang.dart';
 import 'package:firstproject/Modules/Notifications/notification_screen.dart';
 import 'package:firstproject/Modules/on_boarding/on_boarding_screen.dart';
+import 'package:firstproject/mainscreen.dart';
 import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -46,6 +47,7 @@ class More extends StatelessWidget {
                     child: MaterialButton(
                       onPressed: () {
                         FirebaseAuth.instance.signOut();
+                        navigateAndFinish(context, mainscreen());
                       },
                       child: Row(
                         children: [

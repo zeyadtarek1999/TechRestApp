@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+String buttontext = 'Next';
+String skiptext = 'Skip';
 class BoardingModel {
   late final String image;
   late final String title;
@@ -19,6 +20,7 @@ class ON_Boarding_Screen extends StatefulWidget {
 }
 
 class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
+
   var boardController = PageController();
 
   List<BoardingModel> boarding = [
@@ -29,7 +31,8 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
     BoardingModel(
         image: 'images/2.jpeg',
         title: 'Find Food You Love,',
-        body: 'Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep '),
+        body:
+            'Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep '),
     BoardingModel(
         image: 'images/3.jpeg',
         title: 'Delivery On The Way',
@@ -37,7 +40,8 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
     BoardingModel(
         image: 'images/4.jpeg',
         title: 'Live Tracking',
-        body: 'Real time tracking of your food on the app once you placed the order')
+        body:
+            'Real time tracking of your food on the app once you placed the order')
   ];
   bool isLast = false;
 
@@ -55,6 +59,8 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
                     if (index == boarding.length - 1) {
                       setState(() {
                         isLast = true;
+                        buttontext = 'Get Started';
+                        skiptext = '';
                       });
                     } else {
                       setState(() {
@@ -85,13 +91,18 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 30),
-            child: Column(mainAxisAlignment: MainAxisAlignment.end,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Center(
-                    child: TextButton(onPressed: (){
-                      navigateAndFinish(context, afterBoardScreen());
-                    },
-                        child: Text('Skip',style: TextStyle(color: Colors.white),))),
+                    child: TextButton(
+                        onPressed: () {
+                          navigateAndFinish(context, afterBoardScreen());
+                        },
+                        child: Text(
+                          skiptext,
+                          style: TextStyle(color: Colors.white),
+                        ))),
               ],
             ),
           ),
@@ -104,8 +115,12 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
                     width: double.infinity,
                     height: 50,
                     function: () {
+
                       if (isLast) {
+
                         navigateAndFinish(context, afterBoardScreen());
+
+
                       } else {
                         boardController.nextPage(
                             duration: Duration(
@@ -114,7 +129,7 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
                             curve: Curves.fastLinearToSlowEaseIn);
                       }
                     },
-                    text: 'Next',
+                    text: buttontext,
                     write_text_color: Colors.white,
                     background: HexColor('#F0997A')),
               ],
@@ -124,45 +139,49 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
       ),
     );
   }
-
-
 }
 
-login_screen() {
-}
+login_screen() {}
 
 Widget buildBoardingItem(BoardingModel model) => Stack(
-  children: [
-    Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage('${model.image}'), fit: BoxFit.cover),
-      ), // Foreground widget here
-    ),
-    Padding(
-      padding: const EdgeInsets.only(top: 200),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              '${model.title}',
-              style: GoogleFonts.metrophobic ( textStyle : TextStyle(fontSize: 28, color: Colors.white,fontWeight: FontWeight.bold),),
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 60),
-              child: Text(
-                '${model.body}',
-                textAlign: TextAlign.center,
-                style:GoogleFonts.metrophobic ( textStyle : TextStyle(fontSize: 13, color: Colors.white)),
-              ),
-            ),
-          ],
+      children: [
+        Container(
+          height: double.infinity,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage('${model.image}'), fit: BoxFit.cover),
+          ), // Foreground widget here
         ),
-      ),
-    )
-  ],
-);
+        Padding(
+          padding: const EdgeInsets.only(top: 200),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '${model.title}',
+                  style: GoogleFonts.metrophobic(
+                    textStyle: TextStyle(
+                        fontSize: 28,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                SizedBox(height: 40),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
+                  child: Text(
+                    '${model.body}',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.metrophobic(
+                        textStyle:
+                            TextStyle(fontSize: 13, color: Colors.white)),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
