@@ -29,11 +29,7 @@ class _register_screenState extends State<register_screen> {
     return BlocProvider(
         create: (BuildContext context) => TechRegisterCubit(),
         child: BlocConsumer<TechRegisterCubit, TechRegisterStates>(
-          listener: (context, state) {
-            if (state is TechCreateUserSuccessState) {
-              // navigateAndFinish(context, homescreen());
-            }
-          },
+          listener: (context, state) {},
           builder: (context, state) {
             return TechRegisterCubit.get(context).showloading
                 ? Center(
@@ -280,28 +276,6 @@ class _register_screenState extends State<register_screen> {
                         ),
                         Text(TechRegisterCubit.get(context)
                             .verficationFailedmessage),
-
-                        // ConditionalBuilder(
-                        //     condition: state is! TechRegisterLoadingState,
-                        //     builder: (context) => defaultButton(
-                        //           width: 300,
-                        //           height: 50,
-                        //           text: 'Sign Up',
-                        //           write_text_color: Colors.white,
-                        //           background: Colors.deepOrangeAccent.shade100,
-                        //           function: () {
-                        //             if (formKey.currentState!.validate()) {
-                        //               TechRegisterCubit.get(context).userRegister(
-                        //                   name: name_controller.text,
-                        //                   email: email_controller.text,
-                        //                   phone: phone_controller.text,
-                        //                   address: address_controller.text,
-                        //                   password: password_controller.text);
-                        //             }
-                        //           },
-                        //         ),
-                        //     fallback: (context) =>
-                        //         Center(child: CircularProgressIndicator())),
                       ],
                     ),
                   ),

@@ -6,7 +6,6 @@ class TechRestUserModel {
   late String phone;
   late String address;
   late String uId;
-   String? image;
 
   TechRestUserModel({
     required this.email,
@@ -14,7 +13,6 @@ class TechRestUserModel {
     required this.phone,
     required this.address,
     required this.uId,
-    this.image,
   });
 
   TechRestUserModel.fromJason(Map<String, dynamic> json) {
@@ -23,7 +21,6 @@ class TechRestUserModel {
     phone = json['phone'];
     address = json['address'];
     uId = json['uId'];
-    image = json['image'];
   }
 
   Map<String, dynamic> toMap() {
@@ -33,7 +30,6 @@ class TechRestUserModel {
       'phone': phone,
       'address': address,
       'uId': uId,
-      'image': image
     };
   }
 
@@ -43,6 +39,5 @@ class TechRestUserModel {
         email = doc.data()!["email"],
         phone = doc.data()!["phone"],
         address = doc.data()!["address"],
-        uId = doc.data()!["uId"],
-        image = doc.data()!["image"];
+        uId = doc.data()!["uId"];
 }

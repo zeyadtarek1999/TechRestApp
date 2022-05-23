@@ -62,237 +62,265 @@ class _reservation_detailsState extends State<reservation_details> {
                   color: Colors.black)),
         ),
       ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Text(
-                    'Restaurant Name:',
-                    style: TextStyle(fontSize: 18),
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "${retrievedorderList?[0].res_name ?? 'loading'} ",
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text('Branch:',
-                      style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey.shade600,
-                              fontWeight: FontWeight.bold))),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "${retrievedorderList?[0].res_name ?? 'loading'}, ${retrievedorderList?[0].restaurantLocation ?? 'loading'}",
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 13,
-                            color: HexColor('#1C1C1C'),
-                            fontWeight: FontWeight.normal)),
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Phone:',
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 13,
-                            color: Colors.grey.shade600,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    '${retrievedorderList?[0].resphone ?? 'loading'}',
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 13,
-                            color: Colors.grey.shade600,
-                            fontWeight: FontWeight.bold)),
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  Text('${retrievedorderList?[0].open ?? 'loading'}',
-                      style: GoogleFonts.lato(
-                          textStyle: TextStyle(
-                              fontSize: 13,
-                              color: Colors.grey.shade600,
-                              fontWeight: FontWeight.bold))),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(300)),
-                  height: 190,
-                  width: double.infinity,
-                  child: Container(
-                    decoration:
-                        BoxDecoration(borderRadius: BorderRadius.circular(300)),
-                    child: Image(
-                      image: NetworkImage(
-                          '${retrievedorderList?[0].resimage ?? 'loading'}'),
-                      width: double.infinity,
-                      fit: BoxFit.cover,
-                    ),
-                  )),
-              SizedBox(
-                height: 20,
-              ),
-              Container(
-                color: Colors.grey,
-                width: double.infinity,
-                height: 1,
-              ),
-              SizedBox(
-                height: 12,
-              ),
-              Row(
-                children: [
-                  Text('Table Reserved',
-                      style: GoogleFonts.metrophobic(
-                        textStyle: TextStyle(fontSize: 18),
-                        color: HexColor('#000000'),
-                      )),
-                  Spacer(),
-                  Container(
-                    height: 138,
-                    width: 138,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey,
-                            blurStyle: BlurStyle.normal,
-                            blurRadius: 3,
+      body:FutureBuilder(
+        future: orderList,
+
+        builder:(BuildContext context, AsyncSnapshot<List<OrderComponent>> snapshot){
+          if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            return
+              SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            'Restaurant Name:',
+                            style: TextStyle(fontSize: 18),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "${retrievedorderList?[0].res_name ?? 'loading'} ",
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.bold)),
                           )
                         ],
-                        color: Colors.white),
-                    child: Image(
-                      image: AssetImage('${widget.table}'),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Day:',
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 13,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold)),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Text('Branch:',
+                              style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade600,
+                                      fontWeight: FontWeight.bold))),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "${retrievedorderList?[0].res_name ?? 'loading'}, ${retrievedorderList?[0].restaurantLocation ?? 'loading'}",
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 13,
+                                    color: HexColor('#1C1C1C'),
+                                    fontWeight: FontWeight.normal)),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Phone:',
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.grey.shade600,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            '${retrievedorderList?[0].resphone ?? 'loading'}',
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.grey.shade600,
+                                    fontWeight: FontWeight.bold)),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text('${retrievedorderList?[0].open ?? 'loading'}',
+                              style: GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade600,
+                                      fontWeight: FontWeight.bold))),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                          decoration:
+                          BoxDecoration(borderRadius: BorderRadius.circular(300)),
+                          height: 190,
+                          width: double.infinity,
+                          child: Container(
+                            decoration:
+                            BoxDecoration(borderRadius: BorderRadius.circular(300)),
+                            child: Image(
+                              image: NetworkImage(
+                                  '${retrievedorderList?[0].resimage ?? 'loading'}'),
+                              width: double.infinity,
+                              fit: BoxFit.cover,
+                            ),
+                          )),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        color: Colors.grey,
+                        width: double.infinity,
+                        height: 1,
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        children: [
+                          Text('Table Reserved',
+                              style: GoogleFonts.metrophobic(
+                                textStyle: TextStyle(fontSize: 18),
+                                color: HexColor('#000000'),
+                              )),
+                          Spacer(),
+                          Container(
+                            height: 138,
+                            width: 138,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.grey,
+                                    blurStyle: BlurStyle.normal,
+                                    blurRadius: 3,
+                                  )
+                                ],
+                                color: Colors.white),
+                            child: Image(
+                              image: AssetImage('${widget.table}'),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Day:',
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 12.0),
+                            child: Text('${widget.date}',style: GoogleFonts.cabin(
+                                textStyle:
+                                TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.normal)),),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Reservation Time:',
+                            style: GoogleFonts.lato(
+                                textStyle: TextStyle(
+                                    fontSize: 13,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold)),
+                          ),
+                          Spacer(),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 12.0),
+                            child: Text(
+                              '${widget.time}',
+                              style: GoogleFonts.cabin(
+                                  textStyle: TextStyle(
+                                      fontSize: 15,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.normal)),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 72,
+                        width: 305,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          color: Colors.grey.shade300,
+                        ),
+                        child: Text(
+                          "You will have 20 minutes extra on your reservation time if you were late but after that your reservation will be canceled so be careful for time ,we hope to see you :)",
+                          textAlign: TextAlign.center,
+                          style: GoogleFonts.metrophobic(
+                              textStyle:
+                              TextStyle(color: HexColor('#707070'), fontSize: 12)),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      defaultButton(
+                          width: double.infinity,
+                          height: 50,
+                          function: () {
+                            navigateTo(context, MapScreen());
+                          },
+                          text: 'Branch Direction',
+                          write_text_color: Colors.white,
+                          background: HexColor('#F0997A')),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      defaultButton(
+                          width: double.infinity,
+                          height: 50,
+                          function: () {
+                            navigateTo(context, QR_instructions());
+                          },
+                          text: 'Confirm Arrival',
+                          write_text_color: Colors.white,
+                          background: HexColor('#1B9740')),
+                    ],
                   ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: Text('${widget.date}',style: GoogleFonts.cabin(
-                        textStyle:
-                        TextStyle(fontSize: 15, color: Colors.black,fontWeight: FontWeight.normal)),),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Reservation Time:',
-                    style: GoogleFonts.lato(
-                        textStyle: TextStyle(
-                            fontSize: 13,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold)),
-                  ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: Text(
-                      '${widget.time}',
-                      style: GoogleFonts.cabin(
-                          textStyle: TextStyle(
-                              fontSize: 15,
-                              color: Colors.black,
-                              fontWeight: FontWeight.normal)),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                alignment: Alignment.center,
-                height: 72,
-                width: 305,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                  color: Colors.grey.shade300,
                 ),
-                child: Text(
-                  "You will have 20 minutes extra on your reservation time if you were late but after that your reservation will be canceled so be careful for time ,we hope to see you :)",
-                  textAlign: TextAlign.center,
-                  style: GoogleFonts.metrophobic(
-                      textStyle:
-                          TextStyle(color: HexColor('#707070'), fontSize: 12)),
-                ),
+              );
+
+
+          }else if (snapshot.connectionState == ConnectionState.done &&
+              retrievedorderList!.isEmpty){
+            return Center(
+              child: Text(
+                'Empty, ',
+                style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                    fontSize: 20,
+                    // fontWeight: FontWeight.w300,
+                    color: Colors.black)),
               ),
-              SizedBox(
-                height: 20,
-              ),
-              defaultButton(
-                  width: double.infinity,
-                  height: 50,
-                  function: () {
-                    navigateTo(context, MapScreen());
-                  },
-                  text: 'Branch Direction',
-                  write_text_color: Colors.white,
-                  background: HexColor('#F0997A')),
-              SizedBox(
-                height: 20,
-              ),
-              defaultButton(
-                  width: double.infinity,
-                  height: 50,
-                  function: () {
-                    navigateTo(context, QR_instructions());
-                  },
-                  text: 'Confirm Arrival',
-                  write_text_color: Colors.white,
-                  background: HexColor('#1B9740')),
-            ],
-          ),
-        ),
+            );
+
+          }else {
+            return Center(child: CircularProgressIndicator());
+          }
+
+
+
+        } ,
       ),
     );
   }

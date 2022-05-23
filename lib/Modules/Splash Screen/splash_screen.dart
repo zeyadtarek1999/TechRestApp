@@ -39,7 +39,6 @@ class splash_screen extends StatelessWidget {
             ],
           ),
         ),
-
         backgroundColor: Colors.white,
         splashIconSize: 400,
         duration: 2000,

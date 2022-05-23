@@ -15,16 +15,6 @@ TechRestUserModel? usermodel;
 
 final GetTechRestUserModelRef = FirebaseFirestore.instance.collection('users');
 
-class gridbuildrestaurant {
-  late String image;
-  late String resname;
-
-  gridbuildrestaurant({
-    required this.image,
-    required this.resname,
-  });
-}
-
 class dine_in_screen extends StatefulWidget {
   @override
   State<dine_in_screen> createState() => _dine_in_screenState();
@@ -44,10 +34,6 @@ class _dine_in_screenState extends State<dine_in_screen> {
 
   var search_Controller = TextEditingController();
 
-  List<gridbuildrestaurant> components = [
-    gridbuildrestaurant(image: 'images/mac_logo1.png', resname: 'Mac'),
-
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -67,80 +53,112 @@ class _dine_in_screenState extends State<dine_in_screen> {
               )),
           titleSpacing: 2,
           leadingWidth: 54,
-          title: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: 13,
-              ),
-              Row(
-                children: [
-                  Text(
-                    'Good morning',
-                    style: TextStyle(color: HexColor('#4A4B4D')),
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Text(
-                    '${retrievedusersList?[0].name ?? 'loading'}',
-                    style: TextStyle(color: HexColor('#4A4B4D')),
-                  ),
-                  SizedBox(
-                    width: 6,
-                  ),
-                  Text(
-                    '!',
-                    style: TextStyle(color: HexColor('#4A4B4D')),
-                  ),
-                ],
-              ),
-              Text(
-                'Dine in ,',
-                style: TextStyle(color: HexColor('#4A4B4D')),
-              ),
-            ],
+          title:  FutureBuilder(future: userList,
+            builder: (BuildContext context, AsyncSnapshot<List<TechRestUserModel>> snapshot){
+              if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                return Column(crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Good morning, ${retrievedusersList?[0].name}' ,
+                      style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                          fontSize: 20,
+                          // fontWeight: FontWeight.w300,
+                          color: Colors.black)),
+                    ),
+                    Text(
+                      'Dine In , ',
+                      style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                          fontSize: 20,
+                          // fontWeight: FontWeight.w300,
+                          color: Colors.black)),
+                    ),
+                  ],
+                );
+
+              }else if (snapshot.connectionState == ConnectionState.done &&
+                  retrievedusersList!.isEmpty){
+                return Text(
+                  'loading, ',
+                  style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                      fontSize: 20,
+                      // fontWeight: FontWeight.w300,
+                      color: Colors.black)),
+                );
+
+
+              }else {
+                return Center(child: CircularProgressIndicator());
+              }
+
+
+            },
+
           )),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            height: 40,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  GridView.builder(
-                      scrollDirection: Axis.vertical,
-                      physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemCount: components.length,
-                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                          crossAxisSpacing: 20,
-                          mainAxisSpacing: 12,
-                          childAspectRatio: 1,
-                          mainAxisExtent: 120,
-                          maxCrossAxisExtent: 150),
-                      itemBuilder: (context, index) =>
-                          gridbuild(components[index] ,context,)),
-                ],
+      body:FutureBuilder(
+        future: userList,
+        builder:(BuildContext context, AsyncSnapshot<List<TechRestUserModel>> snapshot){
+          if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 40,
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        GridView.builder(
+                            scrollDirection: Axis.vertical,
+                            physics: NeverScrollableScrollPhysics(),
+                            shrinkWrap: true,
+                            itemCount: 1,
+                            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 12,
+                                childAspectRatio: 1,
+                                mainAxisExtent: 120,
+                                maxCrossAxisExtent: 150),
+                            itemBuilder: (context, index) =>
+                                gridbuild( context,)),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            );
+
+
+          }else if (snapshot.connectionState == ConnectionState.done &&
+              retrievedusersList!.isEmpty){
+            return Center(
+              child: Text(
+                'Empty, ',
+                style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                    fontSize: 20,
+                    // fontWeight: FontWeight.w300,
+                    color: Colors.black)),
               ),
-            ),
-          )
-        ],
+            );
+
+          }else {
+            return Center(child: CircularProgressIndicator());
+          }
+
+
+
+        } ,
       ),
     );
   }
 }
 
-Widget gridbuild(gridbuildrestaurant component , BuildContext context, ) {
+Widget gridbuild( BuildContext context, ) {
   return InkWell(
     onTap: () {
-      if (component.resname=='Mac') {
-        navigateTo(context, selectbranch());
-      }
+      navigateTo(context, selectbranch());
     },
+
     child: Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,11 +167,11 @@ Widget gridbuild(gridbuildrestaurant component , BuildContext context, ) {
             height: 60,
             width: 60,
             child: Image.asset(
-              '${component.image}',
+              'images/mac_logo1.png',
               fit: BoxFit.cover,
             )),
         Text(
-          '${component.resname}',
+          'Mac',
           style: GoogleFonts.metrophobic(
               textStyle: TextStyle(
                   color: HexColor('#4A4B4D'),

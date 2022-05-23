@@ -34,7 +34,7 @@ class Login_Screen extends StatelessWidget {
               value: state.uId,
             ).then((value)
             {
-              navigateAndFinish(context, homescreen());
+              navigateAndFinish(context,  homescreen());
 
             });
           }},

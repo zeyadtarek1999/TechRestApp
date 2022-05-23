@@ -14,17 +14,6 @@ OrderComponent? component_model;
 
 final GetOrderComponentRef = FirebaseFirestore.instance.collection('component');
 
-class branchComponent {
-  String branch;
-  String phone;
-  String time;
-
-  branchComponent({
-    required this.branch,
-    required this.phone,
-    required this.time,
-  });
-}
 
 class selectbranch extends StatefulWidget {
   @override
@@ -43,14 +32,7 @@ class _selectbranchState extends State<selectbranch> {
     retrievedorderList = await service.retrievedorder();
   }
 
-  List<branchComponent> components = [
-    branchComponent(
-      time: '${retrievedorderList?[0].open??'loading'}',
-      phone: '${retrievedorderList?[0].resphone ??'loading'}',
-      branch: '${retrievedorderList?[0].restaurantLocation ??'loading'}',
-    ),
 
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -76,107 +58,125 @@ class _selectbranchState extends State<selectbranch> {
                   textStyle: TextStyle(
                       color: HexColor('#4A4B4D'), fontWeight: FontWeight.bold)),
             ),
-            Spacer(),
-            GestureDetector(
-              onTap: () {
-                navigateTo(context, profile_details());
-              },
-              child: CircleAvatar(
-                backgroundColor: Colors.white,
-                radius: 15,
-                child: Image.asset('images/profiledinein.png'),
-              ),
-            )
+
+
           ],
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
-            child: Row(
-              children: [
-                Text(
-                  '${retrievedorderList?[0].res_name??'loading'}',
-                  style: GoogleFonts.lato(
-                    textStyle: TextStyle(
-                        color: HexColor('#1C1C1C'),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
+      body: FutureBuilder(
+        future: orderList,
 
-
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+        builder:(BuildContext context, AsyncSnapshot<List<OrderComponent>> snapshot){
+          if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'Branches',
-                  style: GoogleFonts.lato(
-                    textStyle: TextStyle(
-                        color: HexColor('#7936AB'),
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  child: Row(
+                    children: [
+                      Text(
+                        '${retrievedorderList?[0].res_name??'loading'}',
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              color: HexColor('#1C1C1C'),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+
+
+                    ],
                   ),
                 ),
-                SizedBox(
-                  height: 12,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 18),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Branches',
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
+                              color: HexColor('#7936AB'),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 12,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            height: 3,
+                            width: 65,
+                            color: HexColor('#7936AB'),
+                          ),
+                          Container(
+                            height: 1,
+                            width: 240,
+                            color: Colors.grey[400],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                    ],
+                  ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      height: 3,
-                      width: 65,
-                      color: HexColor('#7936AB'),
+                Expanded(
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          ListView.separated(
+                              physics: NeverScrollableScrollPhysics(),
+                              scrollDirection: Axis.vertical,
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) =>
+                                  buildBranchList(context),
+                              separatorBuilder: (context, index) =>
+                                  Divider(height: 2, color: Colors.grey[300]),
+                              itemCount: 1)
+                        ],
+                      ),
                     ),
-                    Container(
-                      height: 1,
-                      width: 240,
-                      color: Colors.grey[400],
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 20,
-                ),
+                  ),
+                )
               ],
-            ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: BouncingScrollPhysics(),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Column(
-                  children: [
-                    ListView.separated(
-                        physics: NeverScrollableScrollPhysics(),
-                        scrollDirection: Axis.vertical,
-                        shrinkWrap: true,
-                        itemBuilder: (context, index) =>
-                            buildBranchList(components[index] ,context),
-                        separatorBuilder: (context, index) =>
-                            Divider(height: 2, color: Colors.grey[300]),
-                        itemCount: components.length)
-                  ],
-                ),
+            );
+
+
+          }else if (snapshot.connectionState == ConnectionState.done &&
+              retrievedorderList!.isEmpty){
+            return Center(
+              child: Text(
+                'Empty, ',
+                style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                    fontSize: 20,
+                    // fontWeight: FontWeight.w300,
+                    color: Colors.black)),
               ),
-            ),
-          )
-        ],
+            );
+
+          }else {
+            return Center(child: CircularProgressIndicator());
+          }
+
+
+
+        } ,
       ),
     );
   }
 }
 
-Widget buildBranchList(branchComponent components ,BuildContext context,) {
+Widget buildBranchList(BuildContext context,) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -185,7 +185,7 @@ Widget buildBranchList(branchComponent components ,BuildContext context,) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${components.branch}',
+            '${retrievedorderList?[0].restaurantLocation??'loading'}}',
             style: GoogleFonts.lato(
               textStyle: TextStyle(
                   color: HexColor('#1C1C1C'),
@@ -198,7 +198,7 @@ Widget buildBranchList(branchComponent components ,BuildContext context,) {
             children: [
 
               Text(
-                ' · ${components.phone}',
+                ' · ${retrievedorderList?[0].resphone??'loading'}',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                       color: HexColor('#878484'),
@@ -209,7 +209,7 @@ Widget buildBranchList(branchComponent components ,BuildContext context,) {
             ],
           ),
           Text(
-            '${components.time}',
+            '${retrievedorderList?[0].open??'loading'}',
             style: GoogleFonts.lato(
               textStyle: TextStyle(
                   color: HexColor('#878484'),
@@ -276,3 +276,4 @@ Widget buildBranchList(branchComponent components ,BuildContext context,) {
         .toList();
   }
 }
+

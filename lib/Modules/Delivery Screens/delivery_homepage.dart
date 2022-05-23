@@ -42,6 +42,7 @@ class _delivery_homepageState extends State<delivery_homepage> {
   @override
   void initState() {
     super.initState();
+
     _initRetrieval();
   }
 
@@ -73,12 +74,36 @@ class _delivery_homepageState extends State<delivery_homepage> {
             titleSpacing: 0.0,
             backgroundColor: Colors.white,
             elevation: 0,
-            title: Text(
-              'Good morning, ${retrievedusersList?[0].name??'loading'}',
-              style:GoogleFonts.metrophobic(textStyle: TextStyle(
-                  fontSize: 20,
-                  // fontWeight: FontWeight.w300,
-                  color: Colors.black)),
+
+            title: FutureBuilder(future: userList,
+              builder: (BuildContext context, AsyncSnapshot<List<TechRestUserModel>> snapshot){
+                if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                return Text(
+                  'Good morning, ${retrievedusersList?[0].name ?? 'loading'}',
+                  style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                      fontSize: 20,
+                      // fontWeight: FontWeight.w300,
+                      color: Colors.black)),
+                );
+
+                }else if (snapshot.connectionState == ConnectionState.done &&
+                    retrievedusersList!.isEmpty){
+                  return Text(
+                    'loading, ',
+                    style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                        fontSize: 20,
+                        // fontWeight: FontWeight.w300,
+                        color: Colors.black)),
+                  );
+
+
+                }else {
+                  return Center(child: CircularProgressIndicator());
+                }
+
+
+              },
+
             )),
         body: Column(
           children: [
@@ -107,8 +132,7 @@ Widget resturant_components(rest_delivery_components delivery,
         if (delivery.name == "MacDonald's") {
           navigateTo(context, mac_delivery_screen());
         }
-
-        },
+      },
       child: Stack(
         children: [
 
@@ -135,13 +159,13 @@ Widget resturant_components(rest_delivery_components delivery,
                 SizedBox(
                   width: 15,
                 ),
-                 Text(
-                    '${delivery.name}',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold),
-                  ),
+                Text(
+                  '${delivery.name}',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ),
 
                 Spacer(),
                 Container(
