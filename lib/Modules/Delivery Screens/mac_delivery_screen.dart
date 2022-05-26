@@ -6,6 +6,7 @@ import 'package:hexcolor/hexcolor.dart';
 
 import 'package:firstproject/models/Tech_rest_Components_model/Tech_rest_Components_model.dart';
 import '../Menu/menu_screen.dart';
+import '../Review&Rate_screen/review_screen.dart';
 
 DatabaseService service = DatabaseService();
 Future<List<OrderComponent>>? orderList;
@@ -119,6 +120,16 @@ class _mac_delivery_screenState extends State<mac_delivery_screen> {
                       SizedBox(
                         height: 40,
                       ),
+
+                      defaultButton(
+                          width: double.infinity,
+                          height: 50,
+                          function: () {
+                            navigateTo(context, review_screen());
+                          },
+                          text: 'Reviews',
+                          write_text_color: Colors.white,
+                          background: Colors.deepOrangeAccent.shade100),
                     ],
                   ),
                 ),

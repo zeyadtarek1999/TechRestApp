@@ -16,6 +16,7 @@ import 'Modules/Order Tracking/order_tracking_1.dart';
 import 'Modules/Order Tracking/order_tracking_3.dart';
 import 'Modules/Profile Screen/profile_screen.dart';
 import 'Modules/Resetvation Details/reservation_details.dart';
+import 'Modules/Review&Rate_screen/review_screen.dart';
 import 'Modules/Splash Screen/splash_screen.dart';
 import 'Modules/Table Details/table_details.dart';
 import 'Modules/Visa Details/visa_details.dart';

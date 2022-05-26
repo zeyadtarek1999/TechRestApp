@@ -32,8 +32,6 @@ class rest_delivery_components {
 var search_Controller = TextEditingController();
 
 class delivery_homepage extends StatefulWidget {
-
-
   @override
   State<delivery_homepage> createState() => _delivery_homepageState();
 }
@@ -57,8 +55,16 @@ class _delivery_homepageState extends State<delivery_homepage> {
         background: 'images/mac_background.png',
         name: "MacDonald's",
         logo: 'images/mac_logo1.png'),
-
-
+    rest_delivery_components(
+        rate: '4.5',
+        background: 'images/spectra_background.png',
+        name: "Spectra",
+        logo: 'images/spectra_logo.png'),
+    rest_delivery_components(
+        rate: '4.8',
+        background: 'images/buffalo_background.png',
+        name: "Buffalo Burger",
+        logo: 'images/buffalo_logo.png'),
   ];
 
   @override
@@ -67,43 +73,43 @@ class _delivery_homepageState extends State<delivery_homepage> {
         backgroundColor: Colors.white,
         appBar: AppBar(
             leading: IconButton(
-                icon: Icon(Icons.arrow_back_ios, color: Colors.black,),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: Colors.black,
+                ),
                 onPressed: () {
                   Navigator.of(context).pop();
                 }),
             titleSpacing: 0.0,
             backgroundColor: Colors.white,
             elevation: 0,
-
-            title: FutureBuilder(future: userList,
-              builder: (BuildContext context, AsyncSnapshot<List<TechRestUserModel>> snapshot){
+            title: FutureBuilder(
+              future: userList,
+              builder: (BuildContext context,
+                  AsyncSnapshot<List<TechRestUserModel>> snapshot) {
                 if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                return Text(
-                  'Good morning, ${retrievedusersList?[0].name ?? 'loading'}',
-                  style: GoogleFonts.metrophobic(textStyle: TextStyle(
-                      fontSize: 20,
-                      // fontWeight: FontWeight.w300,
-                      color: Colors.black)),
-                );
-
-                }else if (snapshot.connectionState == ConnectionState.done &&
-                    retrievedusersList!.isEmpty){
+                  return Text(
+                    'Good morning, ${retrievedusersList?[0].name ?? 'loading'}',
+                    style: GoogleFonts.metrophobic(
+                        textStyle: TextStyle(
+                            fontSize: 20,
+                            // fontWeight: FontWeight.w300,
+                            color: Colors.black)),
+                  );
+                } else if (snapshot.connectionState == ConnectionState.done &&
+                    retrievedusersList!.isEmpty) {
                   return Text(
                     'loading, ',
-                    style: GoogleFonts.metrophobic(textStyle: TextStyle(
-                        fontSize: 20,
-                        // fontWeight: FontWeight.w300,
-                        color: Colors.black)),
+                    style: GoogleFonts.metrophobic(
+                        textStyle: TextStyle(
+                            fontSize: 20,
+                            // fontWeight: FontWeight.w300,
+                            color: Colors.black)),
                   );
-
-
-                }else {
+                } else {
                   return Center(child: CircularProgressIndicator());
                 }
-
-
               },
-
             )),
         body: Column(
           children: [
@@ -114,9 +120,8 @@ class _delivery_homepageState extends State<delivery_homepage> {
               child: ListView.separated(
                   itemBuilder: (context, index) =>
                       resturant_components(delivery[index], context, index),
-                  separatorBuilder: (context, index) =>
-                      SizedBox(
-                        height: 0.1,
+                  separatorBuilder: (context, index) => SizedBox(
+                        height: 14,
                       ),
                   itemCount: delivery.length),
             ),
@@ -125,8 +130,8 @@ class _delivery_homepageState extends State<delivery_homepage> {
   }
 }
 
-Widget resturant_components(rest_delivery_components delivery,
-    BuildContext context, index) =>
+Widget resturant_components(
+        rest_delivery_components delivery, BuildContext context, index) =>
     InkWell(
       onTap: () {
         if (delivery.name == "MacDonald's") {
@@ -135,7 +140,6 @@ Widget resturant_components(rest_delivery_components delivery,
       },
       child: Stack(
         children: [
-
           Container(
               width: double.infinity,
               child: Image(
@@ -143,7 +147,6 @@ Widget resturant_components(rest_delivery_components delivery,
                 width: double.infinity,
                 fit: BoxFit.cover,
               )),
-
           Padding(
             padding: const EdgeInsets.only(top: 135, left: 20),
             child: Row(
@@ -166,12 +169,11 @@ Widget resturant_components(rest_delivery_components delivery,
                       fontSize: 17,
                       fontWeight: FontWeight.bold),
                 ),
-
                 Spacer(),
                 Container(
                     child: Image(
-                      image: AssetImage('${delivery.logo}'),
-                    )),
+                  image: AssetImage('${delivery.logo}'),
+                )),
               ],
             ),
           )
@@ -196,10 +198,10 @@ class DatabaseService {
 
   Future<List<TechRestUserModel>> retrievedusers() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
-    await _db.collection("users").get();
+        await _db.collection("users").get();
     return snapshot.docs
         .map((docSnapshot) =>
-        TechRestUserModel.fromDocumentSnapshot(docSnapshot))
+            TechRestUserModel.fromDocumentSnapshot(docSnapshot))
         .toList();
   }
 }

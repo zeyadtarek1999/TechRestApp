@@ -16,19 +16,16 @@ class natifcationcomponent {
 class notification_screen extends StatelessWidget {
   List<natifcationcomponent> noticication = [
     natifcationcomponent(
-      time: '3 h ago',
+      time: '1 min',
       component: 'Your order has placed',
     ),natifcationcomponent(
-      time: '1 h ago',
+      time: 'now',
       component: 'Your order has been delivered',
     ),
 
+
     natifcationcomponent(
-      time: '5 h ago',
-      component: 'Your password has been changed ',
-    ),
-    natifcationcomponent(
-      time: '05 Sep 2020',
+      time: 'now',
       component: 'Thank you for your review ',
     ),
 

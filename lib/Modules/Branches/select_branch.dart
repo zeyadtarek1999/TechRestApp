@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../Modules/Profile Screen/profile_screen.dart';
 import '../../models/Tech_rest_Components_model/Tech_rest_Components_model.dart';
 import '../Dine in Screens/table_design.dart';
+import '../Review&Rate_screen/review_screen.dart';
 
 DatabaseService service = DatabaseService();
 Future<List<OrderComponent>>? orderList;
@@ -99,7 +100,7 @@ class _selectbranchState extends State<selectbranch> {
                         'Branches',
                         style: GoogleFonts.lato(
                           textStyle: TextStyle(
-                              color: HexColor('#7936AB'),
+                              color: HexColor('#808080'),
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
                         ),
@@ -112,7 +113,7 @@ class _selectbranchState extends State<selectbranch> {
                           Container(
                             height: 3,
                             width: 65,
-                            color: HexColor('#7936AB'),
+                            color: HexColor('#808080'),
                           ),
                           Container(
                             height: 1,
@@ -225,12 +226,26 @@ Widget buildBranchList(BuildContext context,) {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            height: 9,
-          ),
-
           Container(
-            height: 28,
+            height: 25,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(24),
+              color: HexColor('#A27CB1'),
+            ),
+            child: MaterialButton(
+              onPressed: () {
+                navigateTo(context, review_screen());
+
+              },
+              child: Text(
+                'Reviews',
+                style: TextStyle(color: Colors.white),
+              ),
+            ),
+          ),
+          SizedBox(height: 5,),
+          Container(
+            height: 25,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
               color: HexColor('#F0997A'),
@@ -246,9 +261,7 @@ Widget buildBranchList(BuildContext context,) {
               ),
             ),
           ),
-          SizedBox(
-            height: 9,
-          )
+
         ],
       )
     ],

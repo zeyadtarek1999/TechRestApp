@@ -50,7 +50,7 @@ class _menuState extends State<menu> {
                 ),
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
+                  const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
                   child: Row(
                     children: [
                       IconButton(
@@ -72,68 +72,371 @@ class _menuState extends State<menu> {
                     ],
                   ),
                 ),
-                Padding(
-                    padding:
-                        const EdgeInsets.only(top: 80, left: 20, right: 20),
-                    child: Container(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              navigateTo(context, order_select());
-                            },
+                Column(
+                  children: [
+                    Row(
+                      children: [
+
+                        Padding(
+                            padding:
+                            const EdgeInsets.only(top: 80, left: 17, right: 10),
                             child: Container(
-                              height: 180,
-                              width: 142,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius:
-                                      BorderRadiusDirectional.circular(
-                                          32)),
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Container(
-                                      child: Image.network(
-                                          '${retrievedorderList?[0].orderImage ?? 'loading'}')),
-                                  SizedBox(
-                                    height: 5,
-                                  ),
-                                  Text(
-                                    '${retrievedorderList?[0].orderName ?? 'loading'}',
-                                    style: GoogleFonts.metrophobic(
-                                        textStyle: TextStyle(
-                                            fontSize: 15,
-                                            color: HexColor('#767676'),
-                                            fontWeight:
-                                                FontWeight.normal)),
-                                  ),
-                                  SizedBox(
-                                    height: 7,
-                                  ),
-                                  Container(
-                                      child: Image.asset(
-                                          'images/rating.png')),
-                                  SizedBox(
-                                    height: 7,
-                                  ),
-                                  Text(
-                                    '${retrievedorderList?[0].price.toString() ?? 'loading'} L.E',
-                                    style: GoogleFonts.metrophobic(
-                                        textStyle: TextStyle(
-                                            fontSize: 15,
-                                            color: HexColor('#767676'),
-                                            fontWeight:
-                                                FontWeight.normal)),
+                                  InkWell(
+                                    onTap: (){
+                                      navigateTo(context, order_select());
+                                    },
+                                    child: Container(
+                                      height: 180,
+                                      width: 142,
+                                      decoration: BoxDecoration(
+                                          color: Colors.white,
+                                          borderRadius:
+                                          BorderRadiusDirectional.circular(
+                                              32)),
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                              child: Image.network(
+                                                  '${retrievedorderList?[0].orderImage ?? 'loading'}')),
+                                          SizedBox(
+                                            height: 5,
+                                          ),
+                                          Text(
+                                            '${retrievedorderList?[0].orderName ?? 'loading'}',
+                                            style: GoogleFonts.metrophobic(
+                                                textStyle: TextStyle(
+                                                    fontSize: 15,
+                                                    color: HexColor('#767676'),
+                                                    fontWeight:
+                                                    FontWeight.normal)),
+                                          ),
+                                          SizedBox(
+                                            height: 7,
+                                          ),
+                                          Container(
+                                              child: Image.asset(
+                                                  'images/rating.png')),
+                                          SizedBox(
+                                            height: 7,
+                                          ),
+                                          Text(
+                                            '${retrievedorderList?[0].price.toString() ?? 'loading'} L.E',
+                                            style: GoogleFonts.metrophobic(
+                                                textStyle: TextStyle(
+                                                    fontSize: 15,
+                                                    color: HexColor('#767676'),
+                                                    fontWeight:
+                                                    FontWeight.normal)),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
                                 ],
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    )),
+                            )),Spacer(),
+                        Padding(
+                            padding:
+                            const EdgeInsets.only(top: 80, left: 17, right: 10),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 180,
+                                    width: 142,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            32)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            child: Image.asset('images/chicken-mac.png')),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Chicken Mac',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Container(
+                                            child: Image.asset(
+                                                'images/chicken-mac_rate.png')),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          '90 L.E',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      children: [
+
+                        Padding(
+                            padding:
+                            const EdgeInsets.only( left: 17, right: 10),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 180,
+                                    width: 142,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            32)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            child: Image.asset(
+                                                'images/mac_royal.png')),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Mac Royal',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Container(
+                                            child: Image.asset(
+                                                'images/rating.png')),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          '50 L.E',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),Spacer(),
+                        Padding(
+                            padding:
+                            const EdgeInsets.only( left: 17, right: 10),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 180,
+                                    width: 142,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            32)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            child: Image.asset('images/chicken_fillet.png')),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Chicken Fillet',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Container(
+                                            child: Image.asset(
+                                                'images/chicken_fillet_rate.png')),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          '50 L.E',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                    SizedBox(height: 20,),
+                    Row(
+                      children: [
+
+                        Padding(
+                            padding:
+                            const EdgeInsets.only( left: 17, right: 10),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 180,
+                                    width: 142,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            32)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            child: Image.asset(
+                                                'images/sunday.png')),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Chocolate Sunday',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Container(
+                                            child: Image.asset(
+                                                'images/rating.png')),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          '25 L.E',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),Spacer(),
+                        Padding(
+                            padding:
+                            const EdgeInsets.only( left: 17, right: 10),
+                            child: Container(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    height: 180,
+                                    width: 142,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                        BorderRadiusDirectional.circular(
+                                            32)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                            child: Image.asset('images/mac_flurry_oreo.png')),
+                                        SizedBox(
+                                          height: 5,
+                                        ),
+                                        Text(
+                                          'Mac Flurry Oreo',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Container(
+                                            child: Image.asset(
+                                                'images/chicken_fillet_rate.png')),
+                                        SizedBox(
+                                          height: 7,
+                                        ),
+                                        Text(
+                                          '20 L.E',
+                                          style: GoogleFonts.metrophobic(
+                                              textStyle: TextStyle(
+                                                  fontSize: 15,
+                                                  color: HexColor('#767676'),
+                                                  fontWeight:
+                                                  FontWeight.normal)),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
               ],
             );
           } else if (snapshot.connectionState == ConnectionState.done &&
@@ -175,7 +478,7 @@ class DatabaseService {
 
   Future<List<OrderComponent>> retrievedorder() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
-        await _db.collection("component").get();
+    await _db.collection("component").get();
     return snapshot.docs
         .map((docSnapshot) => OrderComponent.fromDocumentSnapshot(docSnapshot))
         .toList();

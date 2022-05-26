@@ -22,10 +22,12 @@ class OrderComponent {
   late String resimage;
   late String open;
   late String rate;
+  late String Maclogo;
 
 
   OrderComponent({
     required this.restaurantName,
+    required this.Maclogo,
     required this.orderImage,
     required this.orderRate,
     required this.Pepsi,
@@ -56,6 +58,7 @@ class OrderComponent {
       'orderImage':orderImage,
       'orderRate':orderRate,
       'orderName':orderName,
+      'Maclogo':Maclogo,
       'res_name':res_name,
       'resphone':resphone,
       'Fries':Fries,
@@ -82,6 +85,7 @@ class OrderComponent {
         restaurantName = doc.data()!["restaurantName"],
         orderImage = doc.data()!["orderImage"],
         orderRate = doc.data()!["orderRate"],
+        Maclogo = doc.data()!["Maclogo"],
         resphone = doc.data()!["resphone"],
         orderName = doc.data()!["orderName"],
         restaurantLocation = doc.data()!["restaurantLocation"],
