@@ -20,6 +20,8 @@ int cheesequantity = 0;
 int onionsquantity = 0;
 int tomatoquantity = 0;
 int TastySaucequantity = 0;
+int Friesquantity = 0;
+int Pepsiquantity = 0;
 int Quantity = 1;
 
 class dineinorder_select extends StatefulWidget {
@@ -72,16 +74,25 @@ class _order_selectState extends State<dineinorder_select> {
     if (tastySauceprice != null) {
       tastySauceprice = tastySauceprice * TastySaucequantity;
     }
-
+    dynamic Friesprice = retrievedorderList?[0].Fries;
+    if (Friesprice != null) {
+      Friesprice = Friesprice * Friesquantity;
+    }
+    dynamic Pepsiprice = retrievedorderList?[0].Pepsi;
+    if (Pepsiprice != null) {
+      Pepsiprice = Pepsiprice * Pepsiquantity;
+    }
     if (balance != null) {
       balance = (balance +
-              lettuceprice +
-              beefBurgerprice +
-              picklesprice +
-              cheeseprice +
-              onionprice +
-              tomatoprice +
-              tastySauceprice) *
+          lettuceprice +
+          beefBurgerprice +
+          picklesprice +
+          cheeseprice +
+          onionprice +
+          tomatoprice +
+          Friesprice +
+          Pepsiprice +
+          tastySauceprice) *
           Quantity;
     }
 
@@ -564,6 +575,100 @@ class _order_selectState extends State<dineinorder_select> {
                                         onPressed: () {
                                           setState(() {
                                             TastySaucequantity++;
+                                          });
+                                        },
+                                        child: Text('+'),
+                                        mini: true,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 3),
+                                  child: Row(
+                                    children: [
+                                      Text('Fries '),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                          '${retrievedorderList?[0].Fries ?? 'loading'} L.E',
+                                          style: TextStyle(
+                                              color: HexColor('#FC6011'))),
+                                      Spacer(),
+                                      FloatingActionButton(
+                                          backgroundColor: HexColor('#F0997A'),
+                                          onPressed: () {
+                                            setState(() {
+                                              if (Friesquantity > 0) {
+                                                Friesquantity--;
+                                              } else {
+                                                Friesquantity = 0;
+                                              }
+                                            });
+                                          },
+                                          child: Text('-'),
+                                          mini: true),
+                                      SizedBox(
+                                        width: 6,
+                                      ),
+                                      Text('${Friesquantity}'),
+                                      SizedBox(
+                                        width: 6,
+                                      ),
+                                      FloatingActionButton(
+                                        backgroundColor: HexColor('#F0997A'),
+                                        onPressed: () {
+                                          setState(() {
+                                            Friesquantity++;
+                                          });
+                                        },
+                                        child: Text('+'),
+                                        mini: true,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12, vertical: 3),
+                                  child: Row(
+                                    children: [
+                                      Text('Pepsi '),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                          '${retrievedorderList?[0].Pepsi ?? 'loading'} L.E',
+                                          style: TextStyle(
+                                              color: HexColor('#FC6011'))),
+                                      Spacer(),
+                                      FloatingActionButton(
+                                          backgroundColor: HexColor('#F0997A'),
+                                          onPressed: () {
+                                            setState(() {
+                                              if (Pepsiquantity > 0) {
+                                                Pepsiquantity--;
+                                              } else {
+                                                Pepsiquantity = 0;
+                                              }
+                                            });
+                                          },
+                                          child: Text('-'),
+                                          mini: true),
+                                      SizedBox(
+                                        width: 6,
+                                      ),
+                                      Text('${Pepsiquantity}'),
+                                      SizedBox(
+                                        width: 6,
+                                      ),
+                                      FloatingActionButton(
+                                        backgroundColor: HexColor('#F0997A'),
+                                        onPressed: () {
+                                          setState(() {
+                                            Pepsiquantity++;
                                           });
                                         },
                                         child: Text('+'),

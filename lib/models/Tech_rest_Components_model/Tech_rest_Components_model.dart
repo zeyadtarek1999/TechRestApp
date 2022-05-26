@@ -1,67 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-//
-// class OrderComponent {
-//   late String restaurantName;
-//   late String orderImage;
-//   late double orderRate;
-//   late String orderName;
-//   late String restaurantLocation;
-//   late int lettuce;
-//   late int beefBurger;
-//   late int pickles;
-//   late int cheese;
-//   late int tomato;
-//   late int tastySauce;
-//   late int onion;
-//
-//   OrderComponent.fromJason(Map<String, dynamic> json) {
-//     restaurantName = json['restaurantName'];
-//     orderImage = json['orderImage'];
-//     orderRate = json['orderRate'];
-//     orderName = json['orderName'];
-//     onion = json['onion'];
-//     restaurantLocation = json['restaurantLocation'];
-//     lettuce = json['lettuce'];
-//     beefBurger = json['beefBurger'];
-//     pickles = json['pickles'];
-//     cheese = json['cheese'];
-//     tomato = json['tomato'];
-//     tastySauce = json['tastySauce'];
-//   }
-//
-//   OrderComponent({
-//     required this.restaurantName,
-//     required this.orderImage,
-//     required this.orderRate,
-//     required this.orderName,
-//     required this.restaurantLocation,
-//     required this.lettuce,
-//     required this.beefBurger,
-//     required this.pickles,
-//     required this.tomato,
-//     required this.tastySauce,
-//     required this.onion,
-//   });
-//
-//   Map<String, dynamic> toMap() {
-//     return{
-//       'restaurantName':restaurantName,
-//       'orderImage':orderImage,
-//       'orderRate':orderRate,
-//       'orderName':orderName,
-//       'restaurantLocation':restaurantLocation,
-//       'lettuce':lettuce,
-//       'beefBurger':beefBurger,
-//       'pickles':pickles,
-//       'tomato':tomato,
-//       'onion':onion,
-//       'tastySauce':tastySauce,
-//
-//
-//     };
-//
-//   }
-// }
+
 class OrderComponent {
   late String restaurantName;
   late String orderImage;
@@ -77,6 +15,8 @@ class OrderComponent {
   late int tastySauce;
   late int onion;
   late int price;
+  late int Fries;
+  late int Pepsi;
   late String bigtastycomponents;
   late String res_name;
   late String resimage;
@@ -88,8 +28,10 @@ class OrderComponent {
     required this.restaurantName,
     required this.orderImage,
     required this.orderRate,
+    required this.Pepsi,
     required this.orderName,
     required this.res_name,
+    required this.Fries,
     required this.restaurantLocation,
     required this.lettuce,
     required this.beefBurger,
@@ -116,9 +58,11 @@ class OrderComponent {
       'orderName':orderName,
       'res_name':res_name,
       'resphone':resphone,
+      'Fries':Fries,
       'price':price,
       'bigtastycomponents':bigtastycomponents,
       'resimage':resimage,
+      'Pepsi':Pepsi,
 
       'restaurantLocation':restaurantLocation,
       'lettuce':lettuce,
@@ -143,7 +87,9 @@ class OrderComponent {
         restaurantLocation = doc.data()!["restaurantLocation"],
         open = doc.data()!["open"],
         rate = doc.data()!["rate"],
+        Fries = doc.data()!["Fries"],
         lettuce = doc.data()!["lettuce"],
+        Pepsi = doc.data()!["Pepsi"],
         res_name = doc.data()!["res_name"],
         beefBurger = doc.data()!["beefBurger"],
         pickles = doc.data()!["pickles"],
