@@ -46,9 +46,11 @@ class aboutus extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                          'Despite of having many applications that help us in daily tasks and whatever we need our daily life, we need to develop more applications or to upgrade the current application to make themmore easy and more broad technology to facilitate our life, so we made an application thatfacilitate reservation for any restaurant as our problem was for the listing of the customers. Moreand more customers will do everything online. The same is true for table reservations as theycan be reserved from anyplace. The best way to cope with an overflowing reservations list, tofacilitate the right decisions at the right time and improvisations, their first impression of theapplication will predispose them to the rest of the experience.',style: GoogleFonts.metrophobic(
-                          textStyle: TextStyle(
-                              color: HexColor('#4A4B4D'), fontWeight: FontWeight.normal)))
+                          'Despite of having many applications that help us in daily tasks and whatever we need our daily life, we need to develop more applications or to upgrade the current application to make themmore easy and more broad technology to facilitate our life, so we made an application thatfacilitate reservation for any restaurant as our problem was for the listing of the customers. Moreand more customers will do everything online. The same is true for table reservations as theycan be reserved from anyplace. The best way to cope with an overflowing reservations list, tofacilitate the right decisions at the right time and improvisations, their first impression of theapplication will predispose them to the rest of the experience.',
+                          style: GoogleFonts.metrophobic(
+                              textStyle: TextStyle(
+                                  color: HexColor('#4A4B4D'),
+                                  fontWeight: FontWeight.normal)))
                     ],
                   ),
                 )
@@ -58,8 +60,10 @@ class aboutus extends StatelessWidget {
           Row(
             children: [
               Spacer(),
-              Text('Made by', style: GoogleFonts.dancingScript(
-                  textStyle:TextStyle(fontSize: 30 ,fontWeight: FontWeight.bold))),
+              Text('Made by',
+                  style: GoogleFonts.dancingScript(
+                      textStyle: TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.bold))),
               Spacer(),
             ],
           ),
@@ -87,7 +91,9 @@ class aboutus extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
@@ -95,15 +101,20 @@ class aboutus extends StatelessWidget {
                 Text('Arwa Mostafa',
                     style: GoogleFonts.metrophobic(
                         textStyle: TextStyle(
-                            color: HexColor('#4A4B4D'), fontWeight: FontWeight.bold))),Spacer(),
+                            color: HexColor('#4A4B4D'),
+                            fontWeight: FontWeight.bold))),
+                Spacer(),
                 Text('Mahmoud Samir',
                     style: GoogleFonts.metrophobic(
                         textStyle: TextStyle(
-                            color: HexColor('#4A4B4D'), fontWeight: FontWeight.bold))),Spacer(),
+                            color: HexColor('#4A4B4D'),
+                            fontWeight: FontWeight.bold))),
+                Spacer(),
                 Text('Zeyad Tarek',
                     style: GoogleFonts.metrophobic(
                         textStyle: TextStyle(
-                            color: HexColor('#4A4B4D'), fontWeight: FontWeight.bold)))
+                            color: HexColor('#4A4B4D'),
+                            fontWeight: FontWeight.bold)))
               ],
             ),
           )

@@ -4,18 +4,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class TechrestLoginCubit extends Cubit<TechrestLoginStates> {
   TechrestLoginCubit() : super(TechrestLoginInitialState());
 
   static TechrestLoginCubit get(context) => BlocProvider.of(context);
-  bool ispassword =true;
-  IconData suffix =Icons.visibility_outlined;
-  void  changePasswordVisibility (){
-    ispassword=!ispassword;
-    suffix =ispassword ? Icons.visibility_off_outlined:Icons.visibility_outlined;
+  bool ispassword = true;
+  IconData suffix = Icons.visibility_outlined;
+
+  void changePasswordVisibility() {
+    ispassword = !ispassword;
+    suffix =
+        ispassword ? Icons.visibility_off_outlined : Icons.visibility_outlined;
     emit(TechrestChangePasswordVisibilityState());
   }
+
   void userLogin({
     required String email,
     required String password,
@@ -31,12 +33,8 @@ class TechrestLoginCubit extends Cubit<TechrestLoginStates> {
       print(value.user!.email);
       print(value.user!.uid);
       emit(TechrestLoginSuccessState(value.user!.uid));
-    })
-        .catchError((error)
-    {
+    }).catchError((error) {
       emit(TechrestLoginErrorState(error.toString()));
     });
   }
-
-
 }

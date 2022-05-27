@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-
 import '../../layouts/Tech-Rest.layout/layout.dart';
 import '../../shared/components/components.dart';
 
 class sent_an_OTP extends StatefulWidget {
-  sent_an_OTP({required this.verificationId,  required this.isTimeOut2, required this.phone});
+  sent_an_OTP(
+      {required this.verificationId,
+      required this.isTimeOut2,
+      required this.phone});
 
   final String verificationId;
   final bool isTimeOut2;
@@ -73,13 +75,9 @@ class _sent_an_OTPState extends State<sent_an_OTP> {
                         borderRadius: BorderRadius.circular(25),
                         color: Colors.deepOrangeAccent[100]),
                     child: MaterialButton(
-                      onPressed: ()  {
-
+                      onPressed: () {
                         navigateAndFinish(context, homescreen());
-
-
-                      }
-                      ,
+                      },
                       child: Text(
                         'Next',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -89,7 +87,6 @@ class _sent_an_OTPState extends State<sent_an_OTP> {
                   SizedBox(
                     height: 30,
                   ),
-
                 ],
               ),
             ),

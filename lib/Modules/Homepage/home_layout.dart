@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
-
 class services extends StatelessWidget {
   final titleStyle = TextStyle(color: HexColor("#4A4B4D"));
   final deliveryStyle = TextStyle(color: HexColor("#4A4B4D"));
@@ -15,8 +14,8 @@ class services extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Service ',
-            style: GoogleFonts.metrophobic(textStyle: titleStyle)),
-
+            style: GoogleFonts.metrophobic(
+                textStyle: titleStyle, color: HexColor('#4A4B4D'))),
         backgroundColor: Colors.white,
         elevation: 0,
       ),
@@ -63,7 +62,8 @@ class services extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => delivery_homepage()));
+                                        builder: (context) =>
+                                            delivery_homepage()));
                               },
                               height: 87,
                               child: Padding(
@@ -104,7 +104,8 @@ class services extends StatelessWidget {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => dine_in_screen()));
+                                        builder: (context) =>
+                                            dine_in_screen()));
                               },
                               height: 87,
                               child: Padding(
@@ -148,8 +149,10 @@ class services extends StatelessWidget {
                           vertical: 170, horizontal: 19),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => dine_in_screen()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => dine_in_screen()));
                         },
                         child: Container(
                             width: 74,
@@ -180,8 +183,10 @@ class services extends StatelessWidget {
                       padding: const EdgeInsets.only(left: 290, top: 185),
                       child: FloatingActionButton.small(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) => dine_in_screen()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => dine_in_screen()));
                         },
                         backgroundColor: Colors.white,
                         child: Icon(Icons.arrow_forward_ios,

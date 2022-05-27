@@ -1,10 +1,6 @@
 import 'dart:async';
-
-import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
-
 import '../Rate us/rate_us.dart';
-import 'order_tracking_3.dart';
 
 class dineinorder_tracking extends StatefulWidget {
   @override
@@ -12,19 +8,23 @@ class dineinorder_tracking extends StatefulWidget {
 }
 
 class _order_tracking_twoState extends State<dineinorder_tracking> {
-  dynamic time = 7 ;
+  dynamic time = 7;
 
   @override
   void initState() {
     Timer(Duration(seconds: time), () {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => rate_screen(),
-        ),(Route<dynamic>route)=>false,
-      );;
+        MaterialPageRoute(
+          builder: (context) => rate_screen(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+      ;
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +42,15 @@ class _order_tracking_twoState extends State<dineinorder_tracking> {
         SizedBox(
           height: 70,
         ),
-        Container(height: 200,width: 200,
+        Container(
+          height: 200,
+          width: 200,
           child: Center(
               child: Image(
-                image: AssetImage(
-                  'images/cooking-pot.gif',
-                ),
-              )),
+            image: AssetImage(
+              'images/cooking-pot.gif',
+            ),
+          )),
         ),
         SizedBox(
           height: 50,
@@ -61,10 +63,10 @@ class _order_tracking_twoState extends State<dineinorder_tracking> {
               borderRadius: BorderRadius.circular(300)),
           child: Center(
               child: Text(
-                'Order preparation...',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-              )),
+            'Order preparation...',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+          )),
         ),
         SizedBox(
           height: 30,
@@ -86,7 +88,6 @@ class _order_tracking_twoState extends State<dineinorder_tracking> {
         SizedBox(
           height: 50,
         ),
-
       ]),
     );
   }

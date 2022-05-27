@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
 import '../../direction_model.dart';
 import '../../direction_repository.dart';
 
@@ -33,8 +31,18 @@ class _MapScreenState extends State<MapScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         centerTitle: false,
-        leading: IconButton(icon:Icon(Icons.arrow_back_ios, color: Colors.black,) ,onPressed: (){Navigator.of(context).pop(context);}),
-        title: const Text('Google Maps',style: TextStyle(color: Colors.black),),
+        leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Navigator.of(context).pop(context);
+            }),
+        title: const Text(
+          'Google Maps',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           if (_origin != null)
             TextButton(
@@ -143,24 +151,16 @@ class _MapScreenState extends State<MapScreen> {
 
   void _addMarker(LatLng pos) async {
     if (_origin == null || (_origin != null && _destination != null)) {
-      // Origin is not set OR Origin/Destination are both set
-      // Set origin
       setState(() {
         _origin = Marker(
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
-          icon:
-          BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
-        // Reset destination
         _destination = null!;
-        // Reset info
-
       });
     } else {
-      // Origin is already set
-      // Set destination
       setState(() {
         _destination = Marker(
           markerId: const MarkerId('destination'),
@@ -170,7 +170,6 @@ class _MapScreenState extends State<MapScreen> {
         );
       });
 
-      // Get directions
       final directions = await DirectionsRepository()
           .getDirections(origin: _origin!.position, destination: pos);
       setState(() => _info = directions);

@@ -1,8 +1,5 @@
 import 'dart:async';
-
-import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
-
 import '../Rate us/rate_us.dart';
 
 class order_tracking_three extends StatefulWidget {
@@ -67,8 +64,6 @@ class _order_tracking_threeState extends State<order_tracking_three> {
           SizedBox(
             height: 10,
           ),
-
-
           Container(
             width: 230,
             height: 40,
@@ -94,9 +89,10 @@ class _order_tracking_threeState extends State<order_tracking_three> {
                 IconButton(
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar( content: Text('Calling...')),
+                        const SnackBar(content: Text('Calling...')),
                       );
-                    }, icon: Icon(Icons.phone_enabled_outlined))
+                    },
+                    icon: Icon(Icons.phone_enabled_outlined))
               ],
             ),
           )

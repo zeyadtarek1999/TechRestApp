@@ -38,7 +38,8 @@ class _CreateScreenState extends State<CreateScreen> {
               decoration: InputDecoration(
                   hintText: 'Enter your data here',
                   border: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.deepOrange.shade400, width: 2))),
+                      borderSide: BorderSide(
+                          color: Colors.deepOrange.shade400, width: 2))),
             ),
           ),
           SizedBox(

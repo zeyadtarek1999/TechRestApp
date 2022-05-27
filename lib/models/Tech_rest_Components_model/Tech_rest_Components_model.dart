@@ -24,7 +24,6 @@ class OrderComponent {
   late String rate;
   late String Maclogo;
 
-
   OrderComponent({
     required this.restaurantName,
     required this.Maclogo,
@@ -48,41 +47,38 @@ class OrderComponent {
     required this.resimage,
     required this.open,
     required this.rate,
-
-
   });
 
   Map<String, dynamic> toMap() {
     return {
-      'restaurantName':restaurantName,
-      'orderImage':orderImage,
-      'orderRate':orderRate,
-      'orderName':orderName,
-      'Maclogo':Maclogo,
-      'res_name':res_name,
-      'resphone':resphone,
-      'Fries':Fries,
-      'price':price,
-      'bigtastycomponents':bigtastycomponents,
-      'resimage':resimage,
-      'Pepsi':Pepsi,
-
-      'restaurantLocation':restaurantLocation,
-      'lettuce':lettuce,
-      'rate':rate,
-      'beefBurger':beefBurger,
-      'pickles':pickles,
-      'tomato':tomato,
-      'onion':onion,
-      'cheese':cheese,
-      'tastySauce':tastySauce,
-      'open':open,
+      'restaurantName': restaurantName,
+      'orderImage': orderImage,
+      'orderRate': orderRate,
+      'orderName': orderName,
+      'Maclogo': Maclogo,
+      'res_name': res_name,
+      'resphone': resphone,
+      'Fries': Fries,
+      'price': price,
+      'bigtastycomponents': bigtastycomponents,
+      'resimage': resimage,
+      'Pepsi': Pepsi,
+      'restaurantLocation': restaurantLocation,
+      'lettuce': lettuce,
+      'rate': rate,
+      'beefBurger': beefBurger,
+      'pickles': pickles,
+      'tomato': tomato,
+      'onion': onion,
+      'cheese': cheese,
+      'tastySauce': tastySauce,
+      'open': open,
     };
   }
 
-  OrderComponent.fromDocumentSnapshot(DocumentSnapshot<Map<String, dynamic>> doc)
-      :
-        restaurantName = doc.data()!["restaurantName"],
+  OrderComponent.fromDocumentSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> doc)
+      : restaurantName = doc.data()!["restaurantName"],
         orderImage = doc.data()!["orderImage"],
         orderRate = doc.data()!["orderRate"],
         Maclogo = doc.data()!["Maclogo"],
@@ -104,8 +100,4 @@ class OrderComponent {
         tastySauce = doc.data()!["tastySauce"],
         price = doc.data()!["price"],
         resimage = doc.data()!["resimage"];
-
-
-
 }
-

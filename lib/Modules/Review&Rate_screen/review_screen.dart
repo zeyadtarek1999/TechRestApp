@@ -105,7 +105,8 @@ class _review_screenState extends State<review_screen> {
                       ),
                       Text(
                         "${retrievedorderList?[0].res_name}",
-                        style: TextStyle(fontSize: 24, color: HexColor('#6f7571')),
+                        style:
+                            TextStyle(fontSize: 24, color: HexColor('#6f7571')),
                       ),
                       Spacer(
                         flex: 2,
@@ -150,7 +151,10 @@ class _review_screenState extends State<review_screen> {
                   builder: (BuildContext context,
                       AsyncSnapshot<List<TechRestUserModel>> snapshot) {
                     if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                      return Text('${retrieveduserList?[0].name}',style: TextStyle(fontSize: 18,color: Colors.black),);
+                      return Text(
+                        '${retrieveduserList?[0].name}',
+                        style: TextStyle(fontSize: 18, color: Colors.black),
+                      );
                     } else if (snapshot.connectionState ==
                             ConnectionState.done &&
                         retrievedorderList!.isEmpty) {
@@ -182,7 +186,10 @@ class _review_screenState extends State<review_screen> {
                   builder: (BuildContext context,
                       AsyncSnapshot<List<TechRestRateUsModel>> snapshot) {
                     if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-                      return Text('${retrievedrateList?[0].ratenumber}',style: TextStyle(fontSize: 15),);
+                      return Text(
+                        '${retrievedrateList?[0].ratenumber}',
+                        style: TextStyle(fontSize: 15),
+                      );
                     } else if (snapshot.connectionState ==
                             ConnectionState.done &&
                         retrievedorderList!.isEmpty) {
@@ -271,18 +278,6 @@ class _review_screenState extends State<review_screen> {
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("component").doc(documentId).delete();
-  }
-
   Future<List<OrderComponent>> retrievedorder() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
         await _db.collection("component").get();
@@ -294,18 +289,6 @@ class DatabaseService {
 
 class DatabaseService2 {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("Rate").doc(documentId).delete();
-  }
 
   Future<List<TechRestRateUsModel>> retrievedrate() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
@@ -319,18 +302,6 @@ class DatabaseService2 {
 
 class DatabaseService3 {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("users").doc(documentId).delete();
-  }
 
   Future<List<TechRestUserModel>> retrieveduser() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =

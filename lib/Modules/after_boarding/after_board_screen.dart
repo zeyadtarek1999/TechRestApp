@@ -1,10 +1,8 @@
-import 'package:firstproject/Modules/login/login_screen.dart';
 import 'package:firstproject/Modules/register/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import '../../../shared/components/components.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../mainscreen.dart';
 
 class afterBoardScreen extends StatelessWidget {
@@ -22,14 +20,18 @@ class afterBoardScreen extends StatelessWidget {
                   height: 380,
                   decoration: BoxDecoration(
                       image: new DecorationImage(
-                        image: new AssetImage(
-                          'images/shape.png',
-                        ),
-                        fit: BoxFit.cover,
-                      )),
+                    image: new AssetImage(
+                      'images/shape.png',
+                    ),
+                    fit: BoxFit.cover,
+                  )),
                 ),
-                CircleAvatar(radius: 40 , backgroundColor: Colors.grey,
-                  child: CircleAvatar(radius: 37, backgroundColor: Colors.white,
+                CircleAvatar(
+                  radius: 40,
+                  backgroundColor: Colors.grey,
+                  child: CircleAvatar(
+                    radius: 37,
+                    backgroundColor: Colors.white,
                     child: Image(
                       image: AssetImage('images/logo.png'),
                       height: 50,
@@ -39,13 +41,13 @@ class afterBoardScreen extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height:10,
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  //#4A4B4D
+                    //#4A4B4D
                     'Tech',
                     style: GoogleFonts.cabin(
                       textStyle: TextStyle(
@@ -56,8 +58,7 @@ class afterBoardScreen extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text(
-                    'Rest',
+                Text('Rest',
                     style: GoogleFonts.cabin(
                       textStyle: TextStyle(
                           color: HexColor('#4A4B4D'),
@@ -66,9 +67,10 @@ class afterBoardScreen extends StatelessWidget {
                     )),
               ],
             ),
-            SizedBox(height: 4,),
-            Text(
-                'MORE INDEPENDENCE.....MORE FREEDOM',
+            SizedBox(
+              height: 4,
+            ),
+            Text('MORE INDEPENDENCE.....MORE FREEDOM',
                 style: GoogleFonts.metrophobic(
                   textStyle: TextStyle(
                       color: HexColor('#4A4B4D'),
@@ -81,7 +83,8 @@ class afterBoardScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 60),
               child: Text(
-                  'Discover the best foods from over 1,000 restaurants, fast delivery to your doorstep, and reserve your own table in the restaurant',textAlign: TextAlign.center,
+                  'Discover the best foods from over 1,000 restaurants, fast delivery to your doorstep, and reserve your own table in the restaurant',
+                  textAlign: TextAlign.center,
                   style: GoogleFonts.metrophobic(
                     textStyle: TextStyle(
                         color: HexColor('#4A4B4D'),
@@ -90,8 +93,8 @@ class afterBoardScreen extends StatelessWidget {
                   )),
             ),
             Padding(
-              padding:
-              const EdgeInsets.only(right: 10, left: 10, top: 30, bottom: 20),
+              padding: const EdgeInsets.only(
+                  right: 10, left: 10, top: 30, bottom: 20),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

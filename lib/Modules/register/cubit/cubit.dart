@@ -10,9 +10,11 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
   TechRegisterCubit() : super(TechRegisterInitialState());
 
   static TechRegisterCubit get(context) => BlocProvider.of(context);
-  String verficationFailedmessage ='';
-  bool showloading =false ;
-  final FirebaseAuth auth =FirebaseAuth.instance;
+  String verficationFailedmessage = '';
+  bool showloading = false;
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
+
   void userRegister({
     required String name,
     required String email,
@@ -22,10 +24,8 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
   }) {
     emit(TechRegisterLoadingState());
     FirebaseAuth.instance
-        .createUserWithEmailAndPassword(
-        email: email,
-        password: password
-    ).then((value) {
+        .createUserWithEmailAndPassword(email: email, password: password)
+        .then((value) {
       print(value.user!.email);
       print(value.user!.uid);
       userCreate(
@@ -33,12 +33,10 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
           address: address,
           email: email,
           name: name,
-          phone: phone
-      );
+          phone: phone);
       emit(TechRegisterSuccessState());
-    }).catchError((error){
+    }).catchError((error) {
       emit(TechRegisterErrorState(error.toString()));
-
     });
   }
 
@@ -48,9 +46,8 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
     required String phone,
     required String address,
     required String uId,
-  })
-  {
-    TechRestUserModel model=TechRestUserModel(
+  }) {
+    TechRestUserModel model = TechRestUserModel(
       phone: phone,
       name: name,
       email: email,
@@ -60,11 +57,10 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
     FirebaseFirestore.instance
         .collection('users')
         .doc(uId)
-        .set(model.toMap()).then((value) {
-
+        .set(model.toMap())
+        .then((value) {
       emit(TechCreateUserSuccessState());
-
-    }).catchError((error){
+    }).catchError((error) {
       emit(TechCreateUserErrorState(error.toString()));
     });
   }
@@ -75,7 +71,7 @@ class TechRegisterCubit extends Cubit<TechRegisterStates> {
   void changePasswordVisibility() {
     isPassword = !isPassword;
     suffix =
-    isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
+        isPassword ? Icons.visibility_outlined : Icons.visibility_off_outlined;
     emit(TechRegisterChangePasswordVisibilityState());
   }
 }

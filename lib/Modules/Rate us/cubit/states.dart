@@ -1,20 +1,21 @@
-abstract class TechRateusStates{}
-class TechRateUsInitialState extends TechRateusStates{}
+abstract class TechRateusStates {}
 
-class TechRateUsLoadingState extends TechRateusStates{}
+class TechRateUsInitialState extends TechRateusStates {}
 
-class TechRateUsSuccessState extends TechRateusStates{}
+class TechRateUsLoadingState extends TechRateusStates {}
 
-class TechRateUsErrorState extends TechRateusStates{
+class TechRateUsSuccessState extends TechRateusStates {}
+
+class TechRateUsErrorState extends TechRateusStates {
   final String error;
+
   TechRateUsErrorState(this.error);
 }
 
-class TechRateUsGetSuccessState extends TechRateusStates{}
+class TechRateUsGetSuccessState extends TechRateusStates {}
 
-class TechRateUsGetErrorState extends TechRateusStates{
+class TechRateUsGetErrorState extends TechRateusStates {
   final String error;
+
   TechRateUsGetErrorState(this.error);
 }
-
-

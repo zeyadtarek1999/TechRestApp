@@ -234,8 +234,10 @@ dialogcontent(BuildContext context) {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('ok',style: TextStyle(color: Colors.black45,fontSize: 17
-                ),),
+                child: Text(
+                  'ok',
+                  style: TextStyle(color: Colors.black45, fontSize: 17),
+                ),
               ),
             )
           ],
@@ -248,8 +250,7 @@ dialogcontent(BuildContext context) {
           child: CircleAvatar(
             backgroundColor: Colors.blue,
             radius: 50,
-            backgroundImage: NetworkImage('https://i.gifer.com/XLpr.gif')
-            ,
+            backgroundImage: NetworkImage('https://i.gifer.com/XLpr.gif'),
           ))
     ],
   );

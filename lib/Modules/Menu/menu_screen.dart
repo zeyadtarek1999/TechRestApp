@@ -3,7 +3,6 @@ import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../models/Tech_rest_Components_model/Tech_rest_Components_model.dart';
 import '../order_components/order_components.dart';
 
@@ -50,7 +49,7 @@ class _menuState extends State<menu> {
                 ),
                 Padding(
                   padding:
-                  const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
                   child: Row(
                     children: [
                       IconButton(
@@ -76,17 +75,16 @@ class _menuState extends State<menu> {
                   children: [
                     Row(
                       children: [
-
                         Padding(
-                            padding:
-                            const EdgeInsets.only(top: 80, left: 17, right: 10),
+                            padding: const EdgeInsets.only(
+                                top: 80, left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   InkWell(
-                                    onTap: (){
+                                    onTap: () {
                                       navigateTo(context, order_select());
                                     },
                                     child: Container(
@@ -95,8 +93,8 @@ class _menuState extends State<menu> {
                                       decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius:
-                                          BorderRadiusDirectional.circular(
-                                              32)),
+                                              BorderRadiusDirectional.circular(
+                                                  32)),
                                       child: Column(
                                         children: [
                                           Container(
@@ -112,7 +110,7 @@ class _menuState extends State<menu> {
                                                     fontSize: 15,
                                                     color: HexColor('#767676'),
                                                     fontWeight:
-                                                    FontWeight.normal)),
+                                                        FontWeight.normal)),
                                           ),
                                           SizedBox(
                                             height: 7,
@@ -130,7 +128,7 @@ class _menuState extends State<menu> {
                                                     fontSize: 15,
                                                     color: HexColor('#767676'),
                                                     fontWeight:
-                                                    FontWeight.normal)),
+                                                        FontWeight.normal)),
                                           ),
                                         ],
                                       ),
@@ -138,10 +136,11 @@ class _menuState extends State<menu> {
                                   ),
                                 ],
                               ),
-                            )),Spacer(),
+                            )),
+                        Spacer(),
                         Padding(
-                            padding:
-                            const EdgeInsets.only(top: 80, left: 17, right: 10),
+                            padding: const EdgeInsets.only(
+                                top: 80, left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -153,12 +152,13 @@ class _menuState extends State<menu> {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                        BorderRadiusDirectional.circular(
-                                            32)),
+                                            BorderRadiusDirectional.circular(
+                                                32)),
                                     child: Column(
                                       children: [
                                         Container(
-                                            child: Image.asset('images/chicken-mac.png')),
+                                            child: Image.asset(
+                                                'images/chicken-mac.png')),
                                         SizedBox(
                                           height: 5,
                                         ),
@@ -169,7 +169,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                         SizedBox(
                                           height: 7,
@@ -187,7 +187,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                       ],
                                     ),
@@ -197,13 +197,13 @@ class _menuState extends State<menu> {
                             )),
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
-
                         Padding(
-                            padding:
-                            const EdgeInsets.only( left: 17, right: 10),
+                            padding: const EdgeInsets.only(left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -215,8 +215,8 @@ class _menuState extends State<menu> {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                        BorderRadiusDirectional.circular(
-                                            32)),
+                                            BorderRadiusDirectional.circular(
+                                                32)),
                                     child: Column(
                                       children: [
                                         Container(
@@ -232,7 +232,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                         SizedBox(
                                           height: 7,
@@ -250,17 +250,17 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ],
                               ),
-                            )),Spacer(),
+                            )),
+                        Spacer(),
                         Padding(
-                            padding:
-                            const EdgeInsets.only( left: 17, right: 10),
+                            padding: const EdgeInsets.only(left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -272,12 +272,13 @@ class _menuState extends State<menu> {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                        BorderRadiusDirectional.circular(
-                                            32)),
+                                            BorderRadiusDirectional.circular(
+                                                32)),
                                     child: Column(
                                       children: [
                                         Container(
-                                            child: Image.asset('images/chicken_fillet.png')),
+                                            child: Image.asset(
+                                                'images/chicken_fillet.png')),
                                         SizedBox(
                                           height: 5,
                                         ),
@@ -288,7 +289,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                         SizedBox(
                                           height: 7,
@@ -306,7 +307,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                       ],
                                     ),
@@ -316,13 +317,13 @@ class _menuState extends State<menu> {
                             )),
                       ],
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
-
                         Padding(
-                            padding:
-                            const EdgeInsets.only( left: 17, right: 10),
+                            padding: const EdgeInsets.only(left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -334,8 +335,8 @@ class _menuState extends State<menu> {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                        BorderRadiusDirectional.circular(
-                                            32)),
+                                            BorderRadiusDirectional.circular(
+                                                32)),
                                     child: Column(
                                       children: [
                                         Container(
@@ -351,7 +352,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                         SizedBox(
                                           height: 7,
@@ -369,17 +370,17 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                       ],
                                     ),
                                   ),
                                 ],
                               ),
-                            )),Spacer(),
+                            )),
+                        Spacer(),
                         Padding(
-                            padding:
-                            const EdgeInsets.only( left: 17, right: 10),
+                            padding: const EdgeInsets.only(left: 17, right: 10),
                             child: Container(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
@@ -391,12 +392,13 @@ class _menuState extends State<menu> {
                                     decoration: BoxDecoration(
                                         color: Colors.white,
                                         borderRadius:
-                                        BorderRadiusDirectional.circular(
-                                            32)),
+                                            BorderRadiusDirectional.circular(
+                                                32)),
                                     child: Column(
                                       children: [
                                         Container(
-                                            child: Image.asset('images/mac_flurry_oreo.png')),
+                                            child: Image.asset(
+                                                'images/mac_flurry_oreo.png')),
                                         SizedBox(
                                           height: 5,
                                         ),
@@ -407,7 +409,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                         SizedBox(
                                           height: 7,
@@ -425,7 +427,7 @@ class _menuState extends State<menu> {
                                                   fontSize: 15,
                                                   color: HexColor('#767676'),
                                                   fontWeight:
-                                                  FontWeight.normal)),
+                                                      FontWeight.normal)),
                                         ),
                                       ],
                                     ),
@@ -460,25 +462,12 @@ class _menuState extends State<menu> {
   }
 }
 
-
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("component").doc(documentId).delete();
-  }
-
   Future<List<OrderComponent>> retrievedorder() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
-    await _db.collection("component").get();
+        await _db.collection("component").get();
     return snapshot.docs
         .map((docSnapshot) => OrderComponent.fromDocumentSnapshot(docSnapshot))
         .toList();

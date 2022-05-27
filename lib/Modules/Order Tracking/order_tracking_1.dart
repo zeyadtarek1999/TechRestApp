@@ -1,9 +1,6 @@
 import 'dart:async';
-
-import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'order_tracking_2.dart';
-
 
 class order_tracking_one extends StatefulWidget {
   @override
@@ -11,20 +8,23 @@ class order_tracking_one extends StatefulWidget {
 }
 
 class _order_tracking_oneState extends State<order_tracking_one> {
-
-  dynamic time = 8 ;
+  dynamic time = 8;
 
   @override
   void initState() {
     Timer(Duration(seconds: time), () {
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (context) => order_tracking_two(),
-        ),(Route<dynamic>route)=>false,
-      );;
+        MaterialPageRoute(
+          builder: (context) => order_tracking_two(),
+        ),
+        (Route<dynamic> route) => false,
+      );
+      ;
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +42,15 @@ class _order_tracking_oneState extends State<order_tracking_one> {
         SizedBox(
           height: 70,
         ),
-        Container(height: 200,width: 200,
+        Container(
+          height: 200,
+          width: 200,
           child: Center(
               child: Image(
-                image: AssetImage(
-                  'images/mail-download.gif',
-                ),
-              )),
+            image: AssetImage(
+              'images/mail-download.gif',
+            ),
+          )),
         ),
         SizedBox(
           height: 50,
@@ -61,10 +63,10 @@ class _order_tracking_oneState extends State<order_tracking_one> {
               borderRadius: BorderRadius.circular(300)),
           child: Center(
               child: Text(
-                'Confirming order...',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
-              )),
+            'Confirming order...',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+          )),
         ),
         SizedBox(
           height: 30,
@@ -86,7 +88,6 @@ class _order_tracking_oneState extends State<order_tracking_one> {
         SizedBox(
           height: 50,
         ),
-
       ]),
     );
   }

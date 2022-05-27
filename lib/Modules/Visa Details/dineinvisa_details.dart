@@ -1,8 +1,6 @@
 import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
-
 import '../Order Tracking/dineinordertracking.dart';
-import '../Order Tracking/order_tracking_1.dart';
 
 class dineinvisa_details extends StatelessWidget {
 

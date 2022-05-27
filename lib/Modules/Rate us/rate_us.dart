@@ -3,7 +3,6 @@ import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import '../../layouts/Tech-Rest.layout/layout.dart';
 import 'cubit/states.dart';
 
@@ -13,7 +12,8 @@ class rate_screen extends StatefulWidget {
 }
 
 class _rate_screenState extends State<rate_screen> {
-  double ? ratenumber  ;
+  double? ratenumber;
+
   var comment_Controller = TextEditingController();
 
   @override
@@ -92,7 +92,7 @@ class _rate_screenState extends State<rate_screen> {
                             color: Colors.amber,
                           ),
                           onRatingUpdate: (rating) {
-                            ratenumber =rating;
+                            ratenumber = rating;
                             print(rating);
                           },
                         ),
@@ -102,13 +102,12 @@ class _rate_screenState extends State<rate_screen> {
                       height: 20,
                     ),
                     defaultButton(
-
                         width: 200,
                         height: 40,
                         function: () {
-                          TechRateUsCubit.get(context)
-                              .RateUsCreate(ratenumber:ratenumber.toString() ,ratetext:comment_Controller.text.trim() );
-
+                          TechRateUsCubit.get(context).RateUsCreate(
+                              ratenumber: ratenumber.toString(),
+                              ratetext: comment_Controller.text.trim());
 
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(

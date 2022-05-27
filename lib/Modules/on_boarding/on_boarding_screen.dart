@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 String buttontext = 'Next';
 String skiptext = 'Skip';
+
 class BoardingModel {
   late final String image;
   late final String title;
@@ -20,7 +22,6 @@ class ON_Boarding_Screen extends StatefulWidget {
 }
 
 class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
-
   var boardController = PageController();
 
   List<BoardingModel> boarding = [
@@ -115,12 +116,8 @@ class _ON_Boarding_ScreenState extends State<ON_Boarding_Screen> {
                     width: double.infinity,
                     height: 50,
                     function: () {
-
                       if (isLast) {
-
                         navigateAndFinish(context, afterBoardScreen());
-
-
                       } else {
                         boardController.nextPage(
                             duration: Duration(

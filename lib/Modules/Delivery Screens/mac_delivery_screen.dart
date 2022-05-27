@@ -120,7 +120,6 @@ class _mac_delivery_screenState extends State<mac_delivery_screen> {
                       SizedBox(
                         height: 40,
                       ),
-
                       defaultButton(
                           width: double.infinity,
                           height: 50,
@@ -158,18 +157,6 @@ class _mac_delivery_screenState extends State<mac_delivery_screen> {
 
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("component").doc(documentId).delete();
-  }
 
   Future<List<OrderComponent>> retrievedorder() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =

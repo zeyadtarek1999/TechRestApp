@@ -1,7 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
-
 import 'Modules/login/login_screen.dart';
 import 'layouts/Tech-Rest.layout/layout.dart';
 

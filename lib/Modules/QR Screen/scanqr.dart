@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:hexcolor/hexcolor.dart';
-
 import '../Menu/dinein_menu.dart';
 
 class ScanScreen extends StatefulWidget {

@@ -2,29 +2,28 @@ import 'package:firstproject/Modules/Profile%20Screen/profile_screen.dart';
 import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-
 import '../Order Tracking/order_tracking_1.dart';
 import '../Visa Details/visa_details.dart';
 
 class checkout_screen extends StatefulWidget {
-  checkout_screen({required this.subTotal,  });
+  checkout_screen({
+    required this.subTotal,
+  });
 
-   String  subTotal;
-
+  String subTotal;
 
   @override
   State<checkout_screen> createState() => _checkout_screenState();
 }
 
 class _checkout_screenState extends State<checkout_screen> {
-  dynamic _value = 1 ;
-  var delivary_price = 25;
-  var taxes =16 ;
+  dynamic _value = 1;
 
+  var delivary_price = 25;
+  var taxes = 16;
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -85,12 +84,10 @@ class _checkout_screenState extends State<checkout_screen> {
                       Radio(
                           value: 1,
                           groupValue: _value,
-                          onChanged: (value){
+                          onChanged: (value) {
                             setState(() {
-                              _value =value ;
+                              _value = value;
                             });
-
-
                           })
                     ],
                   ),
@@ -102,7 +99,7 @@ class _checkout_screenState extends State<checkout_screen> {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
-                  color:  HexColor('#F6F6F6'),
+                  color: HexColor('#F6F6F6'),
                 ),
                 width: double.infinity,
                 height: 50,
@@ -127,11 +124,10 @@ class _checkout_screenState extends State<checkout_screen> {
                       Radio(
                           value: 2,
                           groupValue: _value,
-                          onChanged: (value){
+                          onChanged: (value) {
                             setState(() {
-                              _value =value ;
+                              _value = value;
                             });
-
                           })
                     ],
                   ),
@@ -149,19 +145,31 @@ class _checkout_screenState extends State<checkout_screen> {
                 height: 40,
               ),
               Row(
-                children: [Text('Sub total'), Spacer(), Text('${widget.subTotal}')],
+                children: [
+                  Text('Sub total'),
+                  Spacer(),
+                  Text('${widget.subTotal}')
+                ],
               ),
               SizedBox(
                 height: 20,
               ),
               Row(
-                children: [Text('Delivery Service'), Spacer(), Text('${delivary_price}')],
+                children: [
+                  Text('Delivery Service'),
+                  Spacer(),
+                  Text('${delivary_price}')
+                ],
               ),
               SizedBox(
                 height: 20,
               ),
               Row(
-                children: [Text('Taxes & Services '), Spacer(), Text('${taxes}')],
+                children: [
+                  Text('Taxes & Services '),
+                  Spacer(),
+                  Text('${taxes}')
+                ],
               ),
               SizedBox(
                 height: 25,
@@ -175,7 +183,7 @@ class _checkout_screenState extends State<checkout_screen> {
                 height: 20,
               ),
               Row(
-                children: [Text('Total'), Spacer(), Text(' ${total ()} ')],
+                children: [Text('Total'), Spacer(), Text(' ${total()} ')],
               ),
               SizedBox(height: 40),
               Container(
@@ -190,7 +198,6 @@ class _checkout_screenState extends State<checkout_screen> {
                 'Delivery Address:  nasrcity ',
                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
               ),
-
               SizedBox(
                 height: 20,
               ),
@@ -198,14 +205,10 @@ class _checkout_screenState extends State<checkout_screen> {
                   width: double.infinity,
                   height: 50,
                   function: () {
-                    if(_value == 1 ){
+                    if (_value == 1) {
                       navigateAndFinish(context, order_tracking_one());
-
-                    }else  {
-
+                    } else {
                       navigateTo(context, visa_details());
-
-
                     }
                   },
                   text: 'Confirm',
@@ -217,12 +220,11 @@ class _checkout_screenState extends State<checkout_screen> {
       ),
     );
   }
-  dynamic  total () {
-    if (widget.subTotal.isNotEmpty ) {
-      final totalprice = double.parse(widget.subTotal ) + delivary_price +taxes ;
-      return totalprice ;
+
+  dynamic total() {
+    if (widget.subTotal.isNotEmpty) {
+      final totalprice = double.parse(widget.subTotal) + delivary_price + taxes;
+      return totalprice;
     }
   }
 }
-
-

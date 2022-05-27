@@ -5,7 +5,6 @@ import 'package:hexcolor/hexcolor.dart';
 import '../../models/Tech_rest_model/tech_rest_user_model.dart';
 import '../../shared/components/components.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../Branches/select_branch.dart';
 
 DatabaseService service = DatabaseService();
@@ -17,7 +16,6 @@ final GetTechRestUserModelRef = FirebaseFirestore.instance.collection('users');
 
 class res {
   String photo;
-
   String resname;
 
   res({
@@ -181,18 +179,6 @@ Widget gridbuild(
 
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  // addEmployee(TechRestUserModel order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(TechRestUserModel employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("users").doc(documentId).delete();
-  }
 
   Future<List<TechRestUserModel>> retrievedusers() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =

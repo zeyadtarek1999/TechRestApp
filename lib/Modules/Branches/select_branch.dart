@@ -3,7 +3,6 @@ import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../Modules/Profile Screen/profile_screen.dart';
 import '../../models/Tech_rest_Components_model/Tech_rest_Components_model.dart';
 import '../Dine in Screens/table_design.dart';
 import '../Review&Rate_screen/review_screen.dart';
@@ -14,7 +13,6 @@ List<OrderComponent>? retrievedorderList;
 OrderComponent? component_model;
 
 final GetOrderComponentRef = FirebaseFirestore.instance.collection('component');
-
 
 class selectbranch extends StatefulWidget {
   @override
@@ -32,8 +30,6 @@ class _selectbranchState extends State<selectbranch> {
     orderList = service.retrievedorder();
     retrievedorderList = await service.retrievedorder();
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,25 +55,24 @@ class _selectbranchState extends State<selectbranch> {
                   textStyle: TextStyle(
                       color: HexColor('#4A4B4D'), fontWeight: FontWeight.bold)),
             ),
-
-
           ],
         ),
       ),
       body: FutureBuilder(
         future: orderList,
-
-        builder:(BuildContext context, AsyncSnapshot<List<OrderComponent>> snapshot){
+        builder: (BuildContext context,
+            AsyncSnapshot<List<OrderComponent>> snapshot) {
           if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                   child: Row(
                     children: [
                       Text(
-                        '${retrievedorderList?[0].res_name??'loading'}',
+                        '${retrievedorderList?[0].res_name ?? 'loading'}',
                         style: GoogleFonts.lato(
                           textStyle: TextStyle(
                               color: HexColor('#1C1C1C'),
@@ -85,8 +80,6 @@ class _selectbranchState extends State<selectbranch> {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-
-
                     ],
                   ),
                 ),
@@ -151,33 +144,30 @@ class _selectbranchState extends State<selectbranch> {
                 )
               ],
             );
-
-
-          }else if (snapshot.connectionState == ConnectionState.done &&
-              retrievedorderList!.isEmpty){
+          } else if (snapshot.connectionState == ConnectionState.done &&
+              retrievedorderList!.isEmpty) {
             return Center(
               child: Text(
                 'Empty, ',
-                style: GoogleFonts.metrophobic(textStyle: TextStyle(
-                    fontSize: 20,
-                    // fontWeight: FontWeight.w300,
-                    color: Colors.black)),
+                style: GoogleFonts.metrophobic(
+                    textStyle: TextStyle(
+                        fontSize: 20,
+                        // fontWeight: FontWeight.w300,
+                        color: Colors.black)),
               ),
             );
-
-          }else {
+          } else {
             return Center(child: CircularProgressIndicator());
           }
-
-
-
-        } ,
+        },
       ),
     );
   }
 }
 
-Widget buildBranchList(BuildContext context,) {
+Widget buildBranchList(
+  BuildContext context,
+) {
   return Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
@@ -186,7 +176,7 @@ Widget buildBranchList(BuildContext context,) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            '${retrievedorderList?[0].restaurantLocation??'loading'}}',
+            '${retrievedorderList?[0].restaurantLocation ?? 'loading'}}',
             style: GoogleFonts.lato(
               textStyle: TextStyle(
                   color: HexColor('#1C1C1C'),
@@ -197,9 +187,8 @@ Widget buildBranchList(BuildContext context,) {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-
               Text(
-                ' · ${retrievedorderList?[0].resphone??'loading'}',
+                ' · ${retrievedorderList?[0].resphone ?? 'loading'}',
                 style: GoogleFonts.lato(
                   textStyle: TextStyle(
                       color: HexColor('#878484'),
@@ -210,7 +199,7 @@ Widget buildBranchList(BuildContext context,) {
             ],
           ),
           Text(
-            '${retrievedorderList?[0].open??'loading'}',
+            '${retrievedorderList?[0].open ?? 'loading'}',
             style: GoogleFonts.lato(
               textStyle: TextStyle(
                   color: HexColor('#878484'),
@@ -235,7 +224,6 @@ Widget buildBranchList(BuildContext context,) {
             child: MaterialButton(
               onPressed: () {
                 navigateTo(context, review_screen());
-
               },
               child: Text(
                 'Reviews',
@@ -243,7 +231,9 @@ Widget buildBranchList(BuildContext context,) {
               ),
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           Container(
             height: 25,
             decoration: BoxDecoration(
@@ -253,7 +243,6 @@ Widget buildBranchList(BuildContext context,) {
             child: MaterialButton(
               onPressed: () {
                 navigateTo(context, table_design());
-
               },
               child: Text(
                 'Select',
@@ -261,32 +250,20 @@ Widget buildBranchList(BuildContext context,) {
               ),
             ),
           ),
-
         ],
       )
     ],
   );
-}class DatabaseService {
+}
+
+class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
-  Future<void> deleteEmployee(String documentId) async {
-    await _db.collection("component").doc(documentId).delete();
-  }
 
   Future<List<OrderComponent>> retrievedorder() async {
     QuerySnapshot<Map<String, dynamic>> snapshot =
-    await _db.collection("component").get();
+        await _db.collection("component").get();
     return snapshot.docs
         .map((docSnapshot) => OrderComponent.fromDocumentSnapshot(docSnapshot))
         .toList();
   }
 }
-
