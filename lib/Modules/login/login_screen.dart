@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hexcolor/hexcolor.dart';
 
 import '../../layouts/Tech-Rest.layout/layout.dart';
+import '../../reset_password/resetpassword.dart';
 import '../../shared/components/components.dart';
 import '../../shared/network/local/cache_helper.dart';
 
@@ -27,17 +28,15 @@ class Login_Screen extends StatelessWidget {
               state: ToastStates.ERROR,
             );
           }
-          if(state is TechrestLoginSuccessState)
-          {
+          if (state is TechrestLoginSuccessState) {
             CacheHelper.saveData(
               key: 'uId',
               value: state.uId,
-            ).then((value)
-            {
-              navigateAndFinish(context,  homescreen());
-
+            ).then((value) {
+              navigateAndFinish(context, homescreen());
             });
-          }},
+          }
+        },
         builder: (context, state) {
           return Scaffold(
             backgroundColor: Colors.white,
@@ -79,7 +78,6 @@ class Login_Screen extends StatelessWidget {
                             height: 30,
                           ),
                           TextFormField(
-
                             controller: EmailController,
                             keyboardType: TextInputType.emailAddress,
                             validator: (value) {
@@ -97,7 +95,7 @@ class Login_Screen extends StatelessWidget {
                               prefixIcon: Icon(Icons.email),
                               border: OutlineInputBorder(
                                 borderSide:
-                                BorderSide(color: Colors.grey, width: 2.0),
+                                    BorderSide(color: Colors.grey, width: 2.0),
                                 borderRadius: BorderRadius.circular(300.0),
                               ),
                             ),
@@ -108,12 +106,10 @@ class Login_Screen extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10),
                             child: TextFormField(
-
-
                               controller: PasswordController,
                               keyboardType: TextInputType.visiblePassword,
                               obscureText:
-                              TechrestLoginCubit.get(context).ispassword,
+                                  TechrestLoginCubit.get(context).ispassword,
                               validator: (value) {
                                 if (value!.isEmpty) {
                                   return 'password must not be empty';
@@ -159,9 +155,9 @@ class Login_Screen extends StatelessWidget {
                                     if (formKey.currentState!.validate()) {
                                       TechrestLoginCubit.get(context).userLogin(
                                           email: EmailController.text.trim(),
-                                          password: PasswordController.text.trim());
+                                          password:
+                                              PasswordController.text.trim());
                                     }
-
                                   },
                                   child: Text(
                                     'Login',
@@ -174,7 +170,11 @@ class Login_Screen extends StatelessWidget {
                               ),
                             ),
                           ),
-
+                          TextButton(
+                              onPressed: () {
+                                navigateTo(context, ForgotPasswordScreen());
+                              },
+                              child: Text('Forget Password')),
                           SizedBox(
                             height: 25,
                           ),
@@ -264,7 +264,8 @@ class Login_Screen extends StatelessWidget {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => register_screen()),
+                                          builder: (context) =>
+                                              register_screen()),
                                     );
                                   },
                                   child: Text('Sign Up'))

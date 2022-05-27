@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firstproject/Modules/Location/location_screen.dart';
+import 'package:firstproject/reset_password/resetpassword.dart';
 import 'package:firstproject/shared/network/local/cache_helper.dart';
 import 'package:firstproject/shared/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,7 @@ import 'Modules/Splash Screen/splash_screen.dart';
 import 'Modules/Table Details/table_details.dart';
 import 'Modules/Visa Details/visa_details.dart';
 import 'Modules/after_boarding/after_board_screen.dart';
+import 'Modules/login/login_screen.dart';
 import 'Modules/order_components/order_components.dart';
 import 'Modules/register/signup_screen.dart';
 import 'layouts/Tech-Rest.layout/layout.dart';
