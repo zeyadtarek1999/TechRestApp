@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import '../Rate us/rate_us.dart';
 
 class order_tracking_three extends StatefulWidget {
@@ -87,10 +88,10 @@ class _order_tracking_threeState extends State<order_tracking_three> {
                 ),
                 Spacer(),
                 IconButton(
-                    onPressed: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Calling...')),
-                      );
+                    onPressed: ()async {FlutterPhoneDirectCaller.callNumber('01141974882');
+                      // ScaffoldMessenger.of(context).showSnackBar(
+                      //   const SnackBar(content: Text('Calling...')),
+                      // );
                     },
                     icon: Icon(Icons.phone_enabled_outlined))
               ],

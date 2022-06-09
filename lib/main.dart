@@ -2,7 +2,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firstproject/shared/network/local/cache_helper.dart';
 import 'package:firstproject/shared/network/remote/dio_helper.dart';
 import 'package:flutter/material.dart';
-
 import 'Modules/Splash Screen/splash_screen.dart';
 
 void main() async {

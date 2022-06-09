@@ -52,21 +52,16 @@ class _menuState extends State<dineinmenu> {
                       const EdgeInsets.symmetric(vertical: 30, horizontal: 5),
                   child: Row(
                     children: [
-                      IconButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          icon: Icon(
-                            Icons.arrow_back_ios,
-                            color: HexColor('#000000'),
-                          )),
-                      Text(
-                        'Mc Donald\'s Menu',
-                        style: GoogleFonts.metrophobic(
-                            textStyle: TextStyle(
-                                fontSize: 18,
-                                color: HexColor('#000000'),
-                                fontWeight: FontWeight.normal)),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                        child: Text(
+                          'Mc Donald\'s Menu',
+                          style: GoogleFonts.metrophobic(
+                              textStyle: TextStyle(
+                                  fontSize: 18,
+                                  color: HexColor('#000000'),
+                                  fontWeight: FontWeight.normal)),
+                        ),
                       ),
                     ],
                   ),

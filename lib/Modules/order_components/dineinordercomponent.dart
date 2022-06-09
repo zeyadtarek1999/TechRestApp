@@ -834,14 +834,6 @@ class _order_selectState extends State<dineinorder_select> {
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  // addEmployee(OrderComponent order) async {
-  //   await _db.collection("component").add(order.toMap());
-  // }
-
-// updateEmployee(OrderComponent employeeData) async {
-//   await _db.collection("component").doc(employeeData.id).update(employeeData.toMap());
-// }
-
   Future<void> deleteEmployee(String documentId) async {
     await _db.collection("component").doc(documentId).delete();
   }

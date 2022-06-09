@@ -13,6 +13,7 @@ class services extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text('Service ',
             style: GoogleFonts.metrophobic(
                 textStyle: titleStyle, color: HexColor('#4A4B4D'))),

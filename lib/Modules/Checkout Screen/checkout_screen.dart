@@ -1,9 +1,17 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firstproject/Modules/Profile%20Screen/profile_screen.dart';
 import 'package:firstproject/shared/components/components.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import '../../models/Tech_rest_model/tech_rest_user_model.dart';
 import '../Order Tracking/order_tracking_1.dart';
 import '../Visa Details/visa_details.dart';
+DatabaseService service = DatabaseService();
+Future<List<TechRestUserModel>>? userlist;
+List<TechRestUserModel>? retrieveduserList;
+TechRestUserModel? user_model;
+final GetOrderComponentRef = FirebaseFirestore.instance.collection('users');
 
 class checkout_screen extends StatefulWidget {
   checkout_screen({
@@ -21,7 +29,16 @@ class _checkout_screenState extends State<checkout_screen> {
 
   var delivary_price = 25;
   var taxes = 16;
+  @override
+  void initState() {
+    super.initState();
+    checkout();
+  }
 
+  Future<void> checkout() async {
+    userlist = service.retrieveduser();
+    retrieveduserList = await service.retrieveduser();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,9 +211,36 @@ class _checkout_screenState extends State<checkout_screen> {
               SizedBox(
                 height: 10,
               ),
-              Text(
-                'Delivery Address:  nasrcity ',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+              FutureBuilder(
+                future: userlist,
+
+                builder:(BuildContext context, AsyncSnapshot<List<TechRestUserModel>> snapshot){
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                    return Text(
+                      'Delivery Address:  ${retrieveduserList?[0].address}',
+                      style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                    );
+
+
+                  }else if (snapshot.connectionState == ConnectionState.done &&
+                      retrieveduserList!.isEmpty){
+                    return Center(
+                      child: Text(
+                        'Empty, ',
+                        style: GoogleFonts.metrophobic(textStyle: TextStyle(
+                            fontSize: 20,
+                            // fontWeight: FontWeight.w300,
+                            color: Colors.black)),
+                      ),
+                    );
+
+                  }else {
+                    return Center(child: CircularProgressIndicator());
+                  }
+
+
+
+                } ,
               ),
               SizedBox(
                 height: 20,
@@ -226,5 +270,17 @@ class _checkout_screenState extends State<checkout_screen> {
       final totalprice = double.parse(widget.subTotal) + delivary_price + taxes;
       return totalprice;
     }
+  }
+}
+class DatabaseService {
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
+
+  Future<List<TechRestUserModel>> retrieveduser() async {
+    QuerySnapshot<Map<String, dynamic>> snapshot =
+    await _db.collection("users").get();
+    return snapshot.docs
+        .map((docSnapshot) =>
+        TechRestUserModel.fromDocumentSnapshot(docSnapshot))
+        .toList();
   }
 }
