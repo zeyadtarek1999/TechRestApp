@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -75,18 +76,30 @@ class aboutus extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  radius: 40,
+                  radius: 50,
                   backgroundColor: HexColor('#F0997A'),
+                  child: CircleAvatar(
+                    radius: 46,
+                    backgroundImage: AssetImage('images/arwa.jpg'),
+                  ),
                 ),
                 Spacer(),
                 CircleAvatar(
-                  radius: 40,
+                  radius: 50,
                   backgroundColor: HexColor('#F0997A'),
+                  child: CircleAvatar(
+                    radius: 46,
+                    backgroundImage: AssetImage('images/mahmoud.jpg'),
+                  ),
                 ),
                 Spacer(),
                 CircleAvatar(
-                  radius: 40,
+                  radius: 50,
                   backgroundColor: HexColor('#F0997A'),
+                  child: CircleAvatar(
+                    radius: 46,
+                    backgroundImage: AssetImage('images/zeyad.jpg'),
+                  ),
                 ),
               ],
             ),
@@ -110,14 +123,19 @@ class aboutus extends StatelessWidget {
                             color: HexColor('#4A4B4D'),
                             fontWeight: FontWeight.bold))),
                 Spacer(),
-                Text('Zeyad Tarek',
-                    style: GoogleFonts.metrophobic(
-                        textStyle: TextStyle(
-                            color: HexColor('#4A4B4D'),
-                            fontWeight: FontWeight.bold)))
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Text('Zeyad Tarek',
+                      style: GoogleFonts.metrophobic(
+                          textStyle: TextStyle(
+                              color: HexColor('#4A4B4D'),
+                              fontWeight: FontWeight.bold))),
+                )
               ],
             ),
-          )
+          ),
+
+
         ],
       ),
     );
